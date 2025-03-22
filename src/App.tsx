@@ -2,10 +2,10 @@ import { useCallback, useRef } from 'react'
 import './App.css'
 import ReactPlayer from 'react-player'
 import { OnProgressProps } from 'react-player/base'
-import { PLAYLIST } from './playlist'
+import { PLAYLIST, VIDEO_URL } from './playlists/restrictedGroupChat'
 import { durationToMilliseconds } from './helpers'
-import { api } from './api'
-import { DeviceEffect } from './devices'
+import { api } from './ledfx/api'
+import { DeviceEffect } from './ledfx/devices'
 
 const playlistWithMilliseconds = new Map<number, DeviceEffect[]>(
   [...PLAYLIST.entries()].map(([time, effects]) => [durationToMilliseconds(time), effects])
@@ -16,8 +16,6 @@ function App() {
   const lastPlayerTime = useRef<{ videoTime: number, timestamp: number } | undefined>(undefined);
   const lastPlayedEffectTime = useRef<number | undefined>(undefined);
   const awaitedEffectTimes = useRef(new Set<number>());
-
-  // const [currentEffects, setCurrentEffects] = useState<DeviceEffect[]>([]);
 
   const handleProgress = useCallback((props: OnProgressProps) => {
     lastPlayerTime.current = { videoTime: props.playedSeconds, timestamp: Date.now() };
@@ -66,7 +64,6 @@ function App() {
       if (success) {
         console.log(`Successfully set effect on ${effects.map(effect => effect.device).join(', ')}`);
         lastPlayedEffectTime.current = lastTime;
-        // setCurrentEffects(effects);
       } else {
         console.error(`Failed to set effect on ${effects.map(effect => effect.device).join(', ')}`);
       }
@@ -79,14 +76,8 @@ function App() {
 
   return (
     <div>
-      {/* {currentEffects.map((effect, index) => (
-        <div key={index}>
-          <p>{effect.device}</p>
-          <pre>{JSON.stringify(effect.data, null, 2)}</pre>
-        </div>
-      ))} */}
       <ReactPlayer
-        url='https://www.youtube.com/watch?v=shFiitpKUSo'
+        url={VIDEO_URL}
         onProgress={handleProgress}
         controls
         onPlay={handlePlay}
@@ -95,32 +86,6 @@ function App() {
       />
     </div>
   )
-  // const [count, setCount] = useState(0)
-
-  // return (
-  //   <>
-  //     <div>
-  //       <a href="https://vite.dev" target="_blank">
-  //         <img src={viteLogo} className="logo" alt="Vite logo" />
-  //       </a>
-  //       <a href="https://react.dev" target="_blank">
-  //         <img src={reactLogo} className="logo react" alt="React logo" />
-  //       </a>
-  //     </div>
-  //     <h1>Vite + React</h1>
-  //     <div className="card">
-  //       <button onClick={() => setCount((count) => count + 1)}>
-  //         count is {count}
-  //       </button>
-  //       <p>
-  //         Edit <code>src/App.tsx</code> and save to test HMR
-  //       </p>
-  //     </div>
-  //     <p className="read-the-docs">
-  //       Click on the Vite and React logos to learn more
-  //     </p>
-  //   </>
-  // )
 }
 
 export default App

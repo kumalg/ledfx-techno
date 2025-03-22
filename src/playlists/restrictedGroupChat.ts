@@ -1,6 +1,8 @@
-import { DeviceEffect, rails, ceiling } from "./devices"
-import { power, rain, randomFlash, scan, singleColor, strobe } from "./effects"
-import { bladeDefault, gradient1Scan, gradient2Scan, strobeBass } from "./presets"
+import { DeviceEffect, rails, ceiling } from "../ledfx/devices"
+import { power, rain, randomFlash, scan, singleColor, strobe } from "../ledfx/effects"
+import { bladeDefault, gradient1Scan, gradient2Scan, strobeBass } from "../ledfx/presets"
+
+export const VIDEO_URL = 'https://www.youtube.com/watch?v=shFiitpKUSo'
 
 export const PLAYLIST = new Map<string, DeviceEffect[]>([
   ["00:01", [

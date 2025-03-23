@@ -5,10 +5,18 @@ import { OnProgressProps } from 'react-player/base'
 import { PLAYLIST, VIDEO_URL } from './playlists/restrictedGroupChat'
 import { durationToMilliseconds } from './helpers'
 import { api } from './ledfx/api'
-import { DeviceEffect } from './ledfx/devices'
+import { ceiling, DeviceEffect, rails } from './ledfx/devices'
 
 const playlistWithMilliseconds = new Map<number, DeviceEffect[]>(
-  [...PLAYLIST.entries()].map(([time, effects]) => [durationToMilliseconds(time), effects])
+  [...PLAYLIST.entries()].map(([time, effects]) => [durationToMilliseconds(time), Object.entries(effects).map(([device, effect]) => {
+    if (device === "rails") {
+      return rails(effect)
+    }
+    if (device === "ceiling") {
+      return ceiling(effect)
+    }
+    throw new Error(`Unknown device: ${device}`)
+  })])
 );
 
 function App() {
@@ -54,7 +62,7 @@ function App() {
     if (lastTime && lastPlayedEffectTime.current !== lastTime && !awaitedEffectTimes.current.has(lastTime)) {
       awaitedEffectTimes.current.add(lastTime);
 
-      const effects = playlistWithMilliseconds.get(lastTime)!;
+      const effects = playlistWithMilliseconds.get(lastTime)!
 
       const promises = await Promise.all(effects.map(effect => api.setEffect(effect.device, effect.data)));
       const parsed = await Promise.all(promises.map(result => result.json()))

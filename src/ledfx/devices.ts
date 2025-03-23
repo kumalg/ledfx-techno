@@ -14,6 +14,8 @@ export const ceiling = (effect: Effect) => {
   }
 }
 
+export type DeviceKey = "rails" | "ceiling"
+
 export type DeviceEffect = 
   | ReturnType<typeof rails>
   | ReturnType<typeof ceiling>

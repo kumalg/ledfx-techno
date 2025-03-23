@@ -17,28 +17,28 @@ const Playlist: Record<string, { [key in DeviceKey]?: Effect }> = {
     rails: randomFlash({ blur: 4, hit_color: "red", hit_duration: 0.1, hit_relative_size: 30 })
   },
   "00:43": {
-    ceiling: singleColor({ color: "black", brightness: 0.0 }),
+    ceiling: off(),
     rails: scan({ color_scan: "red", scan_width: 50, speed: 50, count: 1, bounce: true }),
   },
   "00:49": {
     ceiling: singleColor({ color: "red", brightness: 1 }),
-    rails: singleColor({ color: "black", brightness: 0.0 }),
+    rails: off(),
   },
   "00:57.500": {
-    ceiling: singleColor({ color: "black", brightness: 0.0 }),
+    ceiling: off(),
     rails: strobe({ strobe_color: "red", gradient: "black", strobe_width: 50 })
   },
   "01:00": {
     ceiling: strobeBass("red"),
   },
   "01:01.500": {
-    ceiling: singleColor({ color: "black", brightness: 0.0 }),
+    ceiling: off(),
   },
   "01:06.700": {
     ceiling: strobeBass("red"),
   },
   "01:08": {
-    ceiling: singleColor({ color: "black", brightness: 0.0 }),
+    ceiling: off(),
   },
   "01:10": {
     rails: gradient1Scan("red", 10, 1),
@@ -66,7 +66,7 @@ const Playlist: Record<string, { [key in DeviceKey]?: Effect }> = {
   },
   "01:53": {
     rails: scan({ color_scan: "blue", scan_width: 50, speed: 50, count: 1, bounce: false }),
-    ceiling: singleColor({ color: "black", brightness: 0.0 }),
+    ceiling: off(),
   },
   "02:31": {
     rails: scan({ color_scan: "blue", scan_width: 30, speed: 100, count: 1, bounce: true }),

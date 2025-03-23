@@ -77,7 +77,11 @@ export const bladePowerPlus = (config?: BladePowerPlusEffect) => {
 }
 
 export type Effect =
+  | ReturnType<typeof singleColor>
   | ReturnType<typeof gradient>
   | ReturnType<typeof power>
   | ReturnType<typeof strobe>
-  | ReturnType<typeof scan>;
+  | ReturnType<typeof scan>
+  | ReturnType<typeof randomFlash>
+  | ReturnType<typeof rain>
+  | ReturnType<typeof bladePowerPlus>;

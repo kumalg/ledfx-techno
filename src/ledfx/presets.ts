@@ -1,7 +1,11 @@
-import { bladePowerPlus, gradient, strobe } from "./effects"
+import { bladePowerPlus, gradient, singleColor, strobe } from "./effects"
 import { BladePowerPlusEffect } from "./types/effects/blade_power_plus"
 import { GradientEffect } from "./types/effects/gradient"
 import { RealStrobeEffect } from "./types/effects/real_strobe"
+
+export const off = () => {
+  return singleColor({ color: "black", brightness: 0 })
+}
 
 export const gradient2Scan = (color: string, speed: number, gradient_roll: number, config: GradientEffect = {}) => {
   return gradient({

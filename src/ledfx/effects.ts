@@ -21,10 +21,23 @@ export const gradient = (config?: GradientEffect) => {
   }
 }
 
-export const randomFlash = (config?: RandomFlashEffect) => {
+export const randomFlash = (config: RandomFlashEffect = {}) => {
   return {
     type: "random_flash",
-    ...(config ? { config } : {})
+    config: {
+      background_brightness: 1,
+      background_color: "#000000",
+      blur: 4,
+      brightness: 1,
+      flip: false,
+      hit_color: "#6200ff",
+      hit_duration: 0.1,
+      hit_probability_per_sec: 1,
+      hit_relative_size: 30,
+      mirror: false,
+      speed: 5,
+      ...config
+    }
   }
 }
 

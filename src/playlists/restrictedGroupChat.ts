@@ -178,7 +178,7 @@ const Playlist: Record<string, { [key in DeviceKey]?: Effect }> = {
   "07:37": {
     rails: scan({ color_scan: "red", bounce: true, scan_width: 20 })
   },
-  
+
   // TODO
 
   "08:14": {
@@ -254,7 +254,6 @@ const Playlist: Record<string, { [key in DeviceKey]?: Effect }> = {
 }
 
 export const PLAYLIST = new Map<string, { [key in DeviceKey]?: Effect }>(Object.entries(Playlist))
-
 
 // Time	Song Name
 // [

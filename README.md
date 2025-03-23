@@ -1,3 +1,3 @@
 # LedFX effects playlist helper 
 
-Personal helper project for creating LedFX effects playlist synced with video player using LedFX API.
+A personal assistant project that aims to activate LedFX effects on LED strips/devices at specific moments in the video using LedFX API + React/ReactPlayer.

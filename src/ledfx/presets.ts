@@ -1,14 +1,14 @@
-import { bladePowerPlus, gradient, singleColor, strobe } from "./effects"
+import { effect } from "./types/effect"
 import { BladePowerPlusEffect } from "./types/effects/blade_power_plus"
 import { GradientEffect } from "./types/effects/gradient"
 import { RealStrobeEffect } from "./types/effects/real_strobe"
 
 export const off = () => {
-  return singleColor({ color: "black", brightness: 0 })
+  return effect("singleColor", { color: "#000000", brightness: 0 })
 }
 
 export const gradient2Scan = (color: string, speed: number, gradient_roll: number, config: GradientEffect = {}) => {
-  return gradient({
+  return effect("gradient", {
     brightness: 1,
     background_brightness: 1,
     blur: 2,
@@ -25,7 +25,7 @@ export const gradient2Scan = (color: string, speed: number, gradient_roll: numbe
   })
 }
 export const gradient1Scan = (color: string, speed: number, gradient_roll: number, config: GradientEffect = {}) => {
-  return gradient({
+  return effect("gradient", {
     brightness: 1,
     background_brightness: 1,
     blur: 2,
@@ -34,7 +34,7 @@ export const gradient1Scan = (color: string, speed: number, gradient_roll: numbe
     background_color: "#000000",
     speed,
     gradient_roll,
-    gradient: `linear-gradient(90deg, #000000 0.00%, #000000 35.00%, ${color} 35.10%, ${color} 50.00%, #000000 50.10%`,
+    gradient: `linear-gradient(90deg, #000000 0.00%, #000000 35.00%, ${color} 35.10%, ${color} 50.00%, #000000 50.10%, #000000 85.00%, ${color} 85.10%, ${color} 100.00%)`,
     modulation_speed: 0.5,
     modulate: false,
     modulation_effect: "sine",
@@ -43,7 +43,7 @@ export const gradient1Scan = (color: string, speed: number, gradient_roll: numbe
 }
 
 export const strobeBass = (color: string, config: RealStrobeEffect = {}) => {
-  return strobe({
+  return effect("real_strobe", {
     background_brightness: 1,
     background_color: "#000000",
     bass_strobe_decay_rate: 0.7,
@@ -63,7 +63,7 @@ export const strobeBass = (color: string, config: RealStrobeEffect = {}) => {
 }
 
 export const bladeDefault = (color: string, config: BladePowerPlusEffect = {}) => {
-  return bladePowerPlus({
+  return effect("blade_power_plus", {
     background_brightness: 0.44,
     background_color: "#000000",
     blur: 2,

@@ -1,4 +1,4 @@
-import { Effect } from "./effects"
+import { Effect } from "./types/effect"
 
 export const rails = (effect: Effect) => {
   return {

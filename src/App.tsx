@@ -5,12 +5,15 @@ import { OnProgressProps } from 'react-player/base'
 import { PLAYLIST, VIDEO_URL } from './playlists/restrictedGroupChat'
 import { durationToMilliseconds } from './helpers'
 import { api } from './ledfx/api'
-import { ceiling, DeviceEffect, rails } from './ledfx/devices'
+import { ceiling, DeviceEffect, rails, rails2 } from './ledfx/devices'
 
 const playlistWithMilliseconds = new Map<number, DeviceEffect[]>(
   [...PLAYLIST.entries()].map(([time, effects]) => [durationToMilliseconds(time), Object.entries(effects).map(([device, effect]) => {
     if (device === "rails") {
       return rails(effect)
+    }
+    if (device === "rails2") {
+      return rails2(effect)
     }
     if (device === "ceiling") {
       return ceiling(effect)

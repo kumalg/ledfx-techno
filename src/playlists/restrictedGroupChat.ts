@@ -418,40 +418,192 @@ const Playlist: Record<string, { [key in DeviceKey]?: Effect }> = {
     ceiling: effect("power", { gradient: "white", background_color: "black", sparks_color: "black", brightness: 0.25 }),
   },
   "20:07": {
-    rails: effect("rain", { mids_color: "yellow", lows_color: "black", high_color: "black" }),
+    rails: effect("rain", { mids_color: "orange", lows_color: "black", high_color: "black" }),
     ceiling: presets.off(),
   },
   "20:19": {
     ceiling: effect("power", { gradient: "white", background_color: "black", sparks_color: "black", brightness: 0.5 }),
   },
   "20:31": {
-    rails: presets.gradient2Scan("yellow", 5, 5, { mirror: true })
+    rails: presets.gradient2Scan("orange", 5, 5, { mirror: true })
   },
   "20:37": {
-    rails: presets.gradient2Scan("yellow", 7, 5, { mirror: true })
+    rails: presets.gradient2Scan("orange", 7, 5, { mirror: true })
   },
   "20:41": {
-    rails: presets.gradient2Scan("yellow", 10, 5, { mirror: true })
+    rails: presets.gradient2Scan("orange", 10, 5, { mirror: true })
   },
   "20:45": {
-    rails: presets.gradient2Scan("yellow", 10, 7, { mirror: true })
+    rails: presets.gradient2Scan("orange", 10, 7, { mirror: true })
   },
   "20:52": {
-    rails: effect("random_flash", { blur: 0, hit_color: "yellow", hit_duration: 0.1, hit_relative_size: 5, hit_probability_per_sec: 1 })
+    rails: effect("random_flash", { blur: 0, hit_color: "orange", hit_duration: 0.1, hit_relative_size: 5, hit_probability_per_sec: 1 })
   },
   "20:55": {
-    rails: effect("real_strobe", { strobe_color: "yellow", gradient: "black", strobe_width: 50 }),
+    rails: effect("real_strobe", { strobe_color: "orange", gradient: "black", strobe_width: 50 }),
   },
   "21:01": {
     ceiling: effect("power", { gradient: "orange", background_color: "black", sparks_color: "black", brightness: 0.5 }),
   },
+  "21:13": {
+    rails2: effect("random_flash", { blur: 0, hit_color: "orange", hit_duration: 0.4, hit_relative_size: 5, hit_probability_per_sec: 1 })
+  },
+  "21:19": {
+    rails: presets.bladeDefault("orange", { frequency_range: "Lows (beat+bass)" }),
+  },
   "21:25": {
     rails: presets.off(),
   },
-  //
-  "22:20": {
+  "21:37.500": {
+    rails2: effect("random_flash", { blur: 0, hit_color: "orange", hit_duration: 0.4, hit_relative_size: 10, hit_probability_per_sec: 1 })
+  },
+  "21:49": {
+    rails: presets.gradient1Scan("orange", 3, 1),
+  },
+  "22:01": {
+    rails2: effect("scan_multi", { color_high: "red", "color_low": "yellow", scan_width: 10, speed: 100, count: 1, bounce: true, frequency_range: "Mids", blur: 1 }),
     ceiling: effect("power", { gradient: "green", background_color: "black", sparks_color: "black" }),
   },
+  "23:07": {
+    rails2: effect("random_flash", { blur: 0, hit_color: "green", hit_duration: 0.4, hit_relative_size: 10, hit_probability_per_sec: 1 })
+  },
+  "23:18": {
+    rails2: effect("random_flash", { blur: 0, hit_color: "green", hit_duration: 0.1, hit_relative_size: 10, hit_probability_per_sec: 1 })
+  },
+  "23:26": {
+    rails: presets.off()
+  },
+  "23:43": {
+    rails: effect("rain", { mids_color: "green", lows_color: "black", high_color: "black", raindrop_animation: "Laser", mids_sensitivity: 0.3, lows_sensitivity: 0.03, high_sensitivity: 0.03 }),
+  },
+  "24:31": {
+    rails: effect("real_strobe", { strobe_color: "green", gradient: "black", strobe_width: 50 }),
+  },
+  "24:55": {
+    rails: effect("power", { gradient: "black", background_color: "black", sparks_color: "green" }),
+  },
+  "25:19": {
+    rails: effect("rain", { mids_color: "green", lows_color: "black", high_color: "black", pulse_strip: "Lows" }),
+  },
+  "25:50": {
+    rails: presets.bladeDefault("red", { frequency_range: "Lows (beat+bass)" }),
+    ceiling: effect("power", { gradient: "red", background_color: "black", sparks_color: "black", brightness: 0.25 }),
+  },
+  "26:02.500": {
+    rails2: effect("random_flash", { blur: 0, hit_color: "red", hit_duration: 0.4, hit_relative_size: 10, hit_probability_per_sec: 1 })
+  },
+  "26:14.500": {
+    rails: effect("scan", { color_scan: "red", scan_width: 10, speed: 100, count: 3, bounce: true, frequency_range: "Mids", blur: 0 }),
+  },
+  "26:27": {
+    rails: effect("scan", { color_scan: "red", scan_width: 10, speed: 100, count: 3, bounce: false, frequency_range: "Mids", blur: 0 }),
+  },
+  "26:39": {
+    // rails: presets.off(),
+    rails: effect("rain", { mids_color: "red", lows_color: "black", high_color: "black", raindrop_animation: "Ripple" }),
+  },
+  "27:03": {
+    ceiling: effect("real_strobe", { gradient: "white", strobe_color: "black", brightness: 0.5 }),
+  },
+  "27:11.500": {
+    ceiling: effect("random_flash", { blur: 0, hit_color: "white", hit_duration: 0.1, hit_relative_size: 100, hit_probability_per_sec: 1 })
+  },
+  "27:14.500": {
+    ceiling: presets.off(),
+    rails: presets.off(),
+  },
+  "27:17.500": {
+    ceiling: effect("real_strobe", { gradient: "white", strobe_color: "black", brightness: 0.5 }),
+    rails: effect("real_strobe", { strobe_color: "red", gradient: "black", strobe_width: 20 }),
+  },
+  "27:20.500": {
+    rails: presets.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+  },
+  "27:23.500": {
+    rails: presets.bladeDefault("red", { frequency_range: "Mids" }),
+  },
+  "27:26.800": {
+    rails: presets.gradient2Scan("red", 10, 7, { mirror: true })
+  },
+  "27:28": {
+    rails: presets.off(),
+  },
+  "27:30": {
+    rails: effect("random_flash", { blur: 4, hit_color: "red", hit_duration: 0.1, hit_relative_size: 30, hit_probability_per_sec: 1 })
+  },
+  "27:34": {
+    rails: presets.off(),
+  },
+  "27:35.500": {
+    rails: presets.bladeDefault("red", { frequency_range: "Mids" }),
+  },
+  "27:47.700": {
+    rails: presets.gradient2Scan("red", 10, 7)
+  },
+  "27:59.500": {
+    rails: effect("random_flash", { blur: 0, hit_color: "red", hit_duration: 0.4, hit_relative_size: 5, hit_probability_per_sec: 1 }),
+    ceiling: effect("power", { gradient: "white", background_color: "black", sparks_color: "black", brightness: 0.25 }),
+  },
+  "28:06": {
+    rails: effect("random_flash", { blur: 0, hit_color: "red", hit_duration: 0.2, hit_relative_size: 5, hit_probability_per_sec: 1 }),
+  },
+  "28:09": {
+    rails: effect("random_flash", { blur: 0, hit_color: "red", hit_duration: 0.1, hit_relative_size: 5, hit_probability_per_sec: 1 }),
+  },
+  "28:12": {
+    rails: presets.bladeDefault("red", { frequency_range: "Mids" }),
+  },
+  "28:14": {
+    rails: presets.off(),
+    ceiling: effect("singleColor", { color: "red", brightness: 0.05 })
+  },
+  "28:15": {
+    rails: effect("random_flash", { blur: 0, hit_color: "red", hit_duration: 0.1, hit_relative_size: 5, hit_probability_per_sec: 1 }),
+  },
+  "28:16": {
+    rails: presets.off(),
+  },
+  "28:18": {
+    rails: effect("random_flash", { blur: 0, hit_color: "red", hit_duration: 0.1, hit_relative_size: 1, hit_probability_per_sec: 1 }),
+  },
+  "28:23": {
+    ceiling: effect("power", { gradient: "white", background_color: "black", sparks_color: "black", brightness: 0.25 }),
+  },
+  "28:47.700": {
+    rails: effect("power", { sparks_color: "red", background_color: "black", gradient: "black" }),
+  },
+  "28:59.600": {
+    ceiling: effect("real_strobe", { gradient: "white", strobe_color: "black", brightness: 0.5 }),
+    rails: effect("scan", { color_scan: "red", scan_width: 20, speed: 100, count: 1, bounce: true, frequency_range: "Mids" }),
+  },
+  "29:17.500": {
+    rails: effect("scan", { color_scan: "red", scan_width: 20, speed: 100, count: 3, frequency_range: "Mids" }),
+  },
+  "29:35.500": {
+    rails: effect("random_flash", { blur: 3, hit_color: "red", hit_duration: 0.2, hit_relative_size: 20, hit_probability_per_sec: 1 })
+  },
+  "29:38.500": {
+    rails: effect("random_flash", { blur: 3, hit_color: "red", hit_duration: 0.1, hit_relative_size: 20, hit_probability_per_sec: 1 })
+  },
+  "29:41": {
+    rails: effect("scan_and_flare", { color_scan: "red", scan_width: 20, speed: 100, bounce: true, frequency_range: "Mids" }),
+  },
+  "30:17.500": {
+    rails: effect("rain", { mids_color: "red", lows_color: "black", high_color: "black", raindrop_animation: "Laser", mids_sensitivity: 0.3, lows_sensitivity: 0.03, high_sensitivity: 0.03 }),
+  },
+  "30:36": {
+    ceiling: effect("random_flash", { blur: 0, hit_color: "white", hit_duration: 0.1, hit_relative_size: 100, hit_probability_per_sec: 1 })
+  },
+  // "28:19": {
+  //   rails: presets.off(),
+  // },
+  //
+  //
+  //
+  //
+  // "22:20": {
+  //   ceiling: effect("power", { gradient: "green", background_color: "black", sparks_color: "black" }),
+  // },
   "34:30": {
     rails: presets.gradient1Scan("red", 10, 1),
   },

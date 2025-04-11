@@ -22,11 +22,17 @@ const playlistWithMilliseconds = new Map<number, DeviceEffect[]>(
   })])
 );
 
+const pauseAtEndTime = durationToMilliseconds("01:17:28");
+
 function App() {
+  const playerRef = useRef<ReactPlayer>(null);
+
   const videoPlayed = useRef(false);
   const lastPlayerTime = useRef<{ videoTime: number, timestamp: number } | undefined>(undefined);
   const lastPlayedEffectTime = useRef<number | undefined>(undefined);
   const awaitedEffectTimes = useRef(new Set<number>());
+
+  const pausedAtEnd = useRef(false);
 
   const handleProgress = useCallback((props: OnProgressProps) => {
     lastPlayerTime.current = { videoTime: props.playedSeconds, timestamp: Date.now() };
@@ -82,12 +88,20 @@ function App() {
       awaitedEffectTimes.current.delete(lastTime);
     }
 
+    if (!pausedAtEnd.current && milliseconds >= pauseAtEndTime) {
+      console.log("Pausing at end");
+      pausedAtEnd.current = true;
+      playerRef.current?.getInternalPlayer().pauseVideo();
+      return;
+    }
+
     setTimeout(loop, 100);
   }
 
   return (
     <div>
       <ReactPlayer
+        ref={playerRef}
         url={VIDEO_URL}
         onProgress={handleProgress}
         controls

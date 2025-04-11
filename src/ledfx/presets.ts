@@ -41,6 +41,23 @@ export const gradient1Scan = (color: string, speed: number, gradient_roll: numbe
     ...config
   })
 }
+export const gradient1ScanSmall = (color: string, speed: number, gradient_roll: number, config: GradientEffect = {}) => {
+  return effect("gradient", {
+    brightness: 1,
+    background_brightness: 1,
+    blur: 2,
+    flip: false,
+    mirror: false,
+    background_color: "#000000",
+    speed,
+    gradient_roll,
+    gradient: `linear-gradient(90deg, #000000 0.00%, #000000 49.00%, ${color} 49.10%, ${color} 50.00%, #000000 50.10%, #000000 99.00%, ${color} 99.10%, ${color} 100.00%)`,
+    modulation_speed: 0.5,
+    modulate: false,
+    modulation_effect: "sine",
+    ...config
+  })
+}
 
 export const strobeBass = (color: string, config: RealStrobeEffect = {}) => {
   return effect("real_strobe", {

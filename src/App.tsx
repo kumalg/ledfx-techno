@@ -22,6 +22,8 @@ const playlistWithMilliseconds = new Map<number, DeviceEffect[]>(
   })])
 );
 
+console.log(playlistWithMilliseconds.size, "effects in playlist");
+
 const pauseAtEndTime = durationToMilliseconds("01:17:28");
 
 function App() {

@@ -2,7 +2,7 @@
  * Base configuration properties shared by all effects
  */
 export interface BaseEffectConfig {
-  /** 
+  /**
    * Brightness of the LED strip
    * @default 1
    * @minimum 0
@@ -10,24 +10,24 @@ export interface BaseEffectConfig {
    * Controls overall brightness of the effect
    */
   brightness: number;
-  
-  /** 
+
+  /**
    * Background color as hex string
    * @default "#000000"
    * @format color
    * Applied behind the main effect
    */
   background_color: string;
-  
-  /** 
+
+  /**
    * Brightness of the background color
    * @default 1
    * @minimum 0
    * @maximum 1
    */
   background_brightness: number;
-  
-  /** 
+
+  /**
    * Amount to blur the effect
    * @default 0
    * @minimum 0
@@ -35,15 +35,15 @@ export interface BaseEffectConfig {
    * Higher values create a softer look
    */
   blur: number;
-  
-  /** 
+
+  /**
    * Whether to flip the effect horizontally
    * @default false
    * When true, reverses the display direction from left-to-right to right-to-left
    */
   flip: boolean;
-  
-  /** 
+
+  /**
    * Whether to mirror the effect
    * @default false
    * Creates symmetry from the center outward
@@ -64,7 +64,7 @@ export interface GradientEffectConfig extends BaseEffectConfig {
    * Defines the color pattern displayed across the LEDs
    */
   gradient: string;
-  
+
   /**
    * Amount to shift the gradient
    * @default 0
@@ -87,28 +87,28 @@ export interface MatrixEffectConfig extends GradientEffectConfig {
    * Useful for troubleshooting but not for regular operation
    */
   diag?: boolean;
-  
+
   /**
    * Enable advanced configuration options
    * @default false
    * Shows additional technical parameters in the UI when enabled
    */
   advanced?: boolean;
-  
+
   /**
    * Flip the image horizontally (mirror left-to-right)
    * @default false
    * Useful for correcting orientation issues in matrix displays
    */
   flip_horizontal?: boolean;
-  
+
   /**
    * Flip the image vertically (mirror top-to-bottom)
    * @default false
    * Useful for correcting orientation issues in matrix displays
    */
   flip_vertical?: boolean;
-  
+
   /**
    * 90-degree rotation increments
    * @default 0
@@ -117,14 +117,14 @@ export interface MatrixEffectConfig extends GradientEffectConfig {
    * 0 = no rotation, 1 = 90°, 2 = 180°, 3 = 270°
    */
   rotate?: number;
-  
+
   /**
    * Ignore audio input for testing purposes
    * @default false
    * When enabled, the effect will operate without audio reactivity
    */
   test?: boolean;
-  
+
   /**
    * Dump image data for debugging
    * @default false
@@ -145,7 +145,7 @@ export interface ModulationConfig {
    * Creates a pulsing or breathing effect
    */
   modulate: boolean;
-  
+
   /**
    * Type of modulation animation pattern
    * @default "sine"
@@ -153,7 +153,7 @@ export interface ModulationConfig {
    * "breath" - Mimics natural breathing pattern with varying speeds
    */
   modulation_effect: "sine" | "breath";
-  
+
   /**
    * Speed of modulation animation cycle
    * @default 0.5
@@ -180,7 +180,7 @@ export interface AudioReactiveConfig {
    * Controls which part of the audio spectrum drives the effect
    */
   frequency_range?: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /**
    * Audio response multiplier
    * @default 1
@@ -203,7 +203,7 @@ export interface AtmosphericEffectConfig extends GradientEffectConfig {
    * Makes gradients appear more balanced to the human eye
    */
   fix_hues: boolean;
-  
+
   /**
    * Effect speed modifier
    * @default 0.5
@@ -213,7 +213,7 @@ export interface AtmosphericEffectConfig extends GradientEffectConfig {
    * Lower values produce slower, more subtle animations
    */
   speed: number;
-  
+
   /**
    * Audio reactivity modifier
    * @default 0.25
@@ -243,10 +243,10 @@ export interface GradientConfig extends GradientEffectConfig, ModulationConfig {
 }
 
 /**
- * Bands effect configuration 
+ * Bands effect configuration
  */
 export interface BandsEffectConfig extends GradientEffectConfig {
-  /** 
+  /**
    * Number of color bands to display
    * @default 6
    * @minimum 1
@@ -255,8 +255,8 @@ export interface BandsEffectConfig extends GradientEffectConfig {
    * Lower values create broader color areas
    */
   band_count: number;
-  
-  /** 
+
+  /**
    * Alignment of bands across the LED strip
    * @default "left"
    * "left" - Bands start from the left side
@@ -272,7 +272,7 @@ export interface BandsEffectConfig extends GradientEffectConfig {
  * Bands Matrix effect configuration
  */
 export interface BandsMatrixEffectConfig extends GradientEffectConfig {
-  /** 
+  /**
    * Number of color bands to display
    * @default 6
    * @minimum 1
@@ -281,16 +281,16 @@ export interface BandsMatrixEffectConfig extends GradientEffectConfig {
    * Controls how many bands are displayed in the matrix
    */
   band_count: number;
-  
-  /** 
+
+  /**
    * Whether to invert the gradient colors
    * @default false
    * When enabled, reverses the color sequence of the gradient
    * Useful for creating different visual effects with the same gradient
    */
   flip_gradient: boolean;
-  
-  /** 
+
+  /**
    * Whether to flip the display horizontally
    * @default false
    * Mirrors the band pattern from left to right
@@ -312,7 +312,7 @@ export interface BarEffectConfig extends GradientEffectConfig {
    * Controls the movement pattern of the light bar
    */
   mode: "bounce" | "wipe" | "in-out";
-  
+
   /**
    * Acceleration profile of bar movement
    * @default "ease_out"
@@ -323,7 +323,7 @@ export interface BarEffectConfig extends GradientEffectConfig {
    * Controls how the bar accelerates and decelerates
    */
   ease_method: "ease_in_out" | "ease_in" | "ease_out" | "linear";
-  
+
   /**
    * Amount of color change per beat
    * @default 0.125
@@ -333,7 +333,7 @@ export interface BarEffectConfig extends GradientEffectConfig {
    * Controls how much the color advances through the gradient per beat
    */
   color_step: number;
-  
+
   /**
    * Skip odd or even beats for varied patterns
    * @default "none"
@@ -343,7 +343,7 @@ export interface BarEffectConfig extends GradientEffectConfig {
    * Creates different rhythmic patterns synchronized to music
    */
   beat_skip: "none" | "odds" | "even";
-  
+
   /**
    * Offset the beat detection timing
    * @default 0
@@ -353,7 +353,7 @@ export interface BarEffectConfig extends GradientEffectConfig {
    * Useful for fine-tuning synchronization with music
    */
   beat_offset: number;
-  
+
   /**
    * Frequency of beat skipping when enabled
    * @default 1
@@ -375,7 +375,7 @@ export interface BladePowerPlusEffectConfig extends GradientEffectConfig {
    * Makes gradients appear more balanced to the human eye
    */
   fix_hues: boolean;
-  
+
   /**
    * Rate of color decay
    * @default 0.7
@@ -385,7 +385,7 @@ export interface BladePowerPlusEffectConfig extends GradientEffectConfig {
    * Higher values create longer-lasting effects
    */
   decay: number;
-  
+
   /**
    * Audio reactivity multiplier
    * @default 0.5
@@ -395,7 +395,7 @@ export interface BladePowerPlusEffectConfig extends GradientEffectConfig {
    * Higher values create more dramatic visual responses to sound
    */
   multiplier: number;
-  
+
   /**
    * Frequency range for the beat detection
    * @default "Lows (beat+bass)"
@@ -421,7 +421,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * Controls how the mask image is displayed across the LED matrix
    */
   mask_stretch: "2d full" | "2d tile";
-  
+
   /**
    * How to stretch the background source pixels
    * @default "2d full"
@@ -430,7 +430,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * Controls how the background image is displayed across the LED matrix
    */
   background_stretch: "2d full" | "2d tile";
-  
+
   /**
    * How to stretch the foreground source pixels
    * @default "2d full"
@@ -439,7 +439,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * Controls how the foreground image is displayed across the LED matrix
    */
   foreground_stretch: "2d full" | "2d tile";
-  
+
   /**
    * The virtual device from which to source the mask
    * @default ""
@@ -447,7 +447,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * When empty, no mask is applied
    */
   mask: string;
-  
+
   /**
    * The virtual device from which to source the foreground
    * @default ""
@@ -455,7 +455,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * When empty, no foreground content is displayed
    */
   foreground: string;
-  
+
   /**
    * The virtual device from which to source the background
    * @default ""
@@ -463,7 +463,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * When empty, no background content is displayed
    */
   background: string;
-  
+
   /**
    * Switch Foreground and Background based on mask
    * @default false
@@ -471,7 +471,7 @@ export interface BlenderEffectConfig extends MatrixEffectConfig {
    * Useful for creating negative space effects
    */
   invert_mask: boolean;
-  
+
   /**
    * Mask cutoff value
    * @default 0.5
@@ -499,14 +499,14 @@ export interface BlockReflectionsEffectConfig extends AtmosphericEffectConfig {}
  * @extends {GradientEffectConfig}
  */
 export interface BlocksEffectConfig extends GradientEffectConfig {
-  /** 
+  /**
    * Number of color blocks to display across the LED strip
    * @minimum 1
    * @maximum 10
    */
   block_count: number;
-  
-  /** 
+
+  /**
    * When true, ensures that the hue distribution across blocks is perceptually even
    * @default true
    */
@@ -523,28 +523,28 @@ export interface CloneEffectConfig extends MatrixEffectConfig {
    * @default 0
    */
   screen: number;
-  
+
   /**
    * Pixels down from top of screen
    * @range 0 to 1080
    * @default 0
    */
   down: number;
-  
+
   /**
    * Pixels across from left of screen
    * @range 0 to 1920
    * @default 0
    */
   across: number;
-  
+
   /**
    * Width of captured area in pixels
    * @range 1 to 1920
    * @default 128
    */
   width: number;
-  
+
   /**
    * Height of captured area in pixels
    * @range 1 to 1080
@@ -566,7 +566,7 @@ export interface CrawlerEffectConfig extends AtmosphericEffectConfig {
    * Higher values create more dramatic lateral movement
    */
   sway: number;
-  
+
   /**
    * Chop modifier for the crawler effect
    * @default 30
@@ -576,7 +576,7 @@ export interface CrawlerEffectConfig extends AtmosphericEffectConfig {
    * Higher values create more distinct, separated segments
    */
   chop: number;
-  
+
   /**
    * Stretch modifier for the crawler effect
    * @default 0.5
@@ -601,7 +601,7 @@ export interface DigitalRainEffectConfig extends MatrixEffectConfig {
    * Controls the overall density of the digital rain effect
    */
   count: number;
-  
+
   /**
    * Number of code lines to add per second
    * @default 30
@@ -611,7 +611,7 @@ export interface DigitalRainEffectConfig extends MatrixEffectConfig {
    * Higher values create a more intense, rapidly changing effect
    */
   add_speed: number;
-  
+
   /**
    * Width of code lines as % of matrix
    * @default 1
@@ -621,7 +621,7 @@ export interface DigitalRainEffectConfig extends MatrixEffectConfig {
    * Higher values create thicker, more visible code streams
    */
   width: number;
-  
+
   /**
    * Seconds for a code line to run from top to bottom
    * @default 2
@@ -631,7 +631,7 @@ export interface DigitalRainEffectConfig extends MatrixEffectConfig {
    * Higher values create slower-falling code
    */
   run_seconds: number;
-  
+
   /**
    * Code line tail length as % of the matrix
    * @default 67
@@ -641,7 +641,7 @@ export interface DigitalRainEffectConfig extends MatrixEffectConfig {
    * Higher values create longer, more dramatic trailing effects
    */
   tail: number;
-  
+
   /**
    * Decay filter for audio impulse
    * @default 0.01
@@ -651,7 +651,7 @@ export interface DigitalRainEffectConfig extends MatrixEffectConfig {
    * Lower values create longer-lasting responses to audio
    */
   impulse_decay: number;
-  
+
   /**
    * Audio injection multiplier
    * @default 1
@@ -674,7 +674,7 @@ export interface EnergyEffectConfig extends BaseEffectConfig {
    * Creates a dynamic color show synchronized to music
    */
   color_cycler: boolean;
-  
+
   /**
    * Color displayed for low frequency sounds
    * @default "#FF0000"
@@ -683,7 +683,7 @@ export interface EnergyEffectConfig extends BaseEffectConfig {
    * Typically red for visual impact of bass drops
    */
   color_lows: string;
-  
+
   /**
    * Color displayed for mid-range frequency sounds
    * @default "#00FF00"
@@ -692,7 +692,7 @@ export interface EnergyEffectConfig extends BaseEffectConfig {
    * Provides visual distinction between frequency ranges
    */
   color_mids: string;
-  
+
   /**
    * Color displayed for high frequency sounds
    * @default "#0000FF"
@@ -701,7 +701,7 @@ export interface EnergyEffectConfig extends BaseEffectConfig {
    * Completes the frequency visualization spectrum
    */
   color_high: string;
-  
+
   /**
    * Responsiveness to changes in sound intensity
    * @default 0.6
@@ -711,7 +711,7 @@ export interface EnergyEffectConfig extends BaseEffectConfig {
    * Higher values create more immediate, dramatic reactions
    */
   sensitivity: number;
-  
+
   /**
    * Method for combining frequency colors
    * @default "additive"
@@ -731,7 +731,7 @@ export interface Energy2EffectConfig extends AtmosphericEffectConfig {}
  * Equalizer effect configuration
  */
 export interface EqualizerEffectConfig extends GradientEffectConfig {
-  /** 
+  /**
    * Alignment of bands across the LED strip
    * @default "left"
    * "left" - Bands start from the left side
@@ -741,8 +741,8 @@ export interface EqualizerEffectConfig extends GradientEffectConfig {
    * Controls the orientation and positioning of frequency bands
    */
   align: "left" | "right" | "invert" | "center";
-  
-  /** 
+
+  /**
    * Number of times to repeat the gradient across the display
    * @default 1
    * @minimum 1
@@ -766,7 +766,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Higher values make the peak tracers more prominent
    */
   peak_percent: number;
-  
+
   /**
    * Decay filter applied to the peak value
    * @default 0.03
@@ -776,7 +776,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Lower values make peaks persist longer on screen
    */
   peak_decay: number;
-  
+
   /**
    * Enable peak markers
    * @default false
@@ -784,7 +784,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Helps visualize audio level transitions
    */
   peak_marks: boolean;
-  
+
   /**
    * Center the equalizer bar
    * @default false
@@ -792,7 +792,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * When false, bars extend from the bottom up
    */
   center: boolean;
-  
+
   /**
    * Use max or mean value for bar size
    * @default false
@@ -800,7 +800,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * When false, uses mean value for smoother display
    */
   max_vs_mean: boolean;
-  
+
   /**
    * Make equalizer circular
    * @default false
@@ -808,7 +808,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Creates a radial equalizer visualization
    */
   ring: boolean;
-  
+
   /**
    * Enable spinning
    * @default false
@@ -816,7 +816,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Creates a dynamic rotation effect synchronized with audio
    */
   spin: boolean;
-  
+
   /**
    * Number of frequency bands
    * @default 16
@@ -826,7 +826,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Higher values show more detailed frequency visualization
    */
   bands: number;
-  
+
   /**
    * Frequency range for spin impulse
    * @default "Lows (beat+bass)"
@@ -834,7 +834,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Different ranges create different rotation patterns based on music content
    */
   frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /**
    * Spin impulse multiplier
    * @default 1
@@ -844,7 +844,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Higher values create more dramatic spinning with audio peaks
    */
   spin_multiplier: number;
-  
+
   /**
    * Decay filter for spin impulse
    * @default 0.01
@@ -885,7 +885,7 @@ export interface FireEffectConfig extends AtmosphericEffectConfig {
    * Higher values create more rapid color transitions in the flame effect
    */
   color_shift: number;
-  
+
   /**
    * Fire intensity modifier
    * @default 0.04
@@ -912,7 +912,7 @@ export interface GameOfLifeEffectConfig extends MatrixEffectConfig {
    * Controls when the pattern will be automatically reset
    */
   health_checks: "All" | "Dead" | "Oscillating" | "None";
-  
+
   /**
    * Base steps per second for simulation
    * @default 30
@@ -922,7 +922,7 @@ export interface GameOfLifeEffectConfig extends MatrixEffectConfig {
    * Higher values make the patterns evolve more quickly
    */
   base_game_speed: number;
-  
+
   /**
    * Seconds between health checks
    * @default 5
@@ -932,7 +932,7 @@ export interface GameOfLifeEffectConfig extends MatrixEffectConfig {
    * Lower values detect problems faster but may interfere with interesting evolutions
    */
   health_check_interval: number;
-  
+
   /**
    * Frequency range for life generation
    * @default "Lows (beat+bass)"
@@ -944,7 +944,7 @@ export interface GameOfLifeEffectConfig extends MatrixEffectConfig {
    * Controls which audio frequencies trigger new cell generation
    */
   frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /**
    * Generate entities on beat
    * @default true
@@ -952,7 +952,7 @@ export interface GameOfLifeEffectConfig extends MatrixEffectConfig {
    * Creates a music-synchronized pattern generation
    */
   beat_inject: boolean;
-  
+
   /**
    * Decay filter for life generation
    * @default 0.01
@@ -978,7 +978,7 @@ export interface GifPlayerEffectConfig extends MatrixEffectConfig {
    * Controls the algorithm used when scaling GIFs to fit the display
    */
   resize_method: "Fastest" | "Fast" | "Slow" | "Slowest";
-  
+
   /**
    * Path or URL to the GIF file
    * @default ""
@@ -987,7 +987,7 @@ export interface GifPlayerEffectConfig extends MatrixEffectConfig {
    * Empty string will result in a blank display
    */
   image_location: string;
-  
+
   /**
    * Enable ping-pong animation effect
    * @default false
@@ -995,7 +995,7 @@ export interface GifPlayerEffectConfig extends MatrixEffectConfig {
    * Creates a smoother transition between animation cycles
    */
   bounce: boolean;
-  
+
   /**
    * Frames per second for GIF playback
    * @default 15
@@ -1034,7 +1034,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * Useful for testing when no image is available
    */
   pattern: boolean;
-  
+
   /**
    * Frequency range that controls the image effects
    * @default "Lows (beat+bass)"
@@ -1046,7 +1046,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * Controls which part of the audio spectrum affects the image size and rotation
    */
   frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /**
    * Audio input amplification factor
    * @default 0.5
@@ -1056,7 +1056,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * Higher values create more dramatic responses to sound
    */
   multiplier: number;
-  
+
   /**
    * Minimum size multiplier for the image
    * @default 0.3
@@ -1066,7 +1066,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * Lower values allow more dramatic size changes with audio
    */
   min_size: number;
-  
+
   /**
    * Use bilinear interpolation for smoother scaling
    * @default false
@@ -1074,7 +1074,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * May reduce performance on larger matrices
    */
   bilinear: boolean;
-  
+
   /**
    * Spin image according to audio impulse
    * @default false
@@ -1082,7 +1082,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * Creates a dynamic spinning effect synchronized with music
    */
   spin: boolean;
-  
+
   /**
    * When spinning, clip image to frame boundaries
    * @default false
@@ -1090,7 +1090,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * When disabled, allows corners of the image to extend beyond visible area during rotation
    */
   clip: boolean;
-  
+
   /**
    * Image source path or URL
    * @default ""
@@ -1115,7 +1115,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Controls the algorithm used when scaling images to fit the display
    */
   resize_method: "Fastest" | "Fast" | "Slow" | "Slowest";
-  
+
   /**
    * Horizontal stretch percentage
    * @default 100
@@ -1125,7 +1125,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Values above 100 expand the width, below 100 compress it
    */
   stretch_horizontal: number;
-  
+
   /**
    * Vertical stretch percentage
    * @default 100
@@ -1135,7 +1135,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Values above 100 expand the height, below 100 compress it
    */
   stretch_vertical: number;
-  
+
   /**
    * Horizontal center offset
    * @default 0
@@ -1145,7 +1145,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Negative values move left, positive values move right
    */
   center_horizontal: number;
-  
+
   /**
    * Vertical center offset
    * @default 0
@@ -1155,7 +1155,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Negative values move up, positive values move down
    */
   center_vertical: number;
-  
+
   /**
    * Path or URL to image sequence
    * @default ""
@@ -1164,7 +1164,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * For sequences, use format like "path/to/images/{}.png"
    */
   image_location: string;
-  
+
   /**
    * Frame indices to display on beat detection
    * @default ""
@@ -1172,7 +1172,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * These frames will be triggered when a beat is detected
    */
   beat_frames: string;
-  
+
   /**
    * Frame indices to exclude from animation
    * @default ""
@@ -1180,7 +1180,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * These frames will be excluded from the normal sequence
    */
   skip_frames: string;
-  
+
   /**
    * Show detailed diagnostic information overlay
    * @default false
@@ -1188,7 +1188,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Useful for troubleshooting animation issues
    */
   deep_diag: boolean;
-  
+
   /**
    * Generate test beats for animation testing
    * @default false
@@ -1196,7 +1196,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Useful for previewing beat-reactive animations without audio
    */
   fake_beat: boolean;
-  
+
   /**
    * Maintain original image proportions
    * @default false
@@ -1204,7 +1204,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * May result in letterboxing or pillarboxing
    */
   keep_aspect_ratio: boolean;
-  
+
   /**
    * Scale image to fill entire matrix
    * @default false
@@ -1212,7 +1212,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * May crop portions of the image that don't fit
    */
   force_fit: boolean;
-  
+
   /**
    * Skip first and last keyframes during ping-pong
    * @default false
@@ -1220,7 +1220,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Creates smoother transitions when animation reverses
    */
   ping_pong_skip: boolean;
-  
+
   /**
    * Play animation forward then backward
    * @default false
@@ -1228,7 +1228,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Creates a more fluid continuous animation pattern
    */
   ping_pong: boolean;
-  
+
   /**
    * Reduce beat detection sensitivity
    * @default false
@@ -1236,7 +1236,7 @@ export interface Keybeat2dEffectConfig extends MatrixEffectConfig {
    * Useful for preventing unwanted triggers from quieter sounds
    */
   half_beat: boolean;
-  
+
   /**
    * Brightness multiplier for displayed images
    * @default 1
@@ -1304,7 +1304,7 @@ export interface MeltAndSparkleEffectConfig extends AtmosphericEffectConfig {
    * Lower values create a darker, more subtle background effect
    */
   bg_bright: number;
-  
+
   /**
    * Size of the melting lava sections
    * @default 0.5
@@ -1314,7 +1314,7 @@ export interface MeltAndSparkleEffectConfig extends AtmosphericEffectConfig {
    * Higher values create larger, more flowing patterns
    */
   lava_width: number;
-  
+
   /**
    * Audio threshold for triggering strobes
    * @default 0.75
@@ -1324,7 +1324,7 @@ export interface MeltAndSparkleEffectConfig extends AtmosphericEffectConfig {
    * Higher values make strobes trigger only on louder sounds
    */
   strobe_threshold: number;
-  
+
   /**
    * Strobe flash frequency
    * @default 0.75
@@ -1334,7 +1334,7 @@ export interface MeltAndSparkleEffectConfig extends AtmosphericEffectConfig {
    * Higher values create more frequent, intense flashing
    */
   strobe_rate: number;
-  
+
   /**
    * Strobe flash size
    * @default 0.3
@@ -1344,7 +1344,7 @@ export interface MeltAndSparkleEffectConfig extends AtmosphericEffectConfig {
    * Higher values create larger, more prominent flashes
    */
   strobe_width: number;
-  
+
   /**
    * Strobe fade-out speed
    * @default 0.25
@@ -1354,7 +1354,7 @@ export interface MeltAndSparkleEffectConfig extends AtmosphericEffectConfig {
    * Lower values create longer-lasting sparkle effects
    */
   strobe_decay_rate: number;
-  
+
   /**
    * Strobe blur amount
    * @default 3
@@ -1379,7 +1379,7 @@ export interface MetroEffectConfig extends BaseEffectConfig {
    * Lower values create faster flashing sequences
    */
   pulse_period: number;
-  
+
   /**
    * Flash to blank ratio
    * @default 0.3
@@ -1389,7 +1389,7 @@ export interface MetroEffectConfig extends BaseEffectConfig {
    * Lower values create shorter flashes with longer pauses
    */
   pulse_ratio: number;
-  
+
   /**
    * Steps of pattern division
    * @default 4
@@ -1399,7 +1399,7 @@ export interface MetroEffectConfig extends BaseEffectConfig {
    * Higher values create more complex patterns with smaller segments
    */
   steps: number;
-  
+
   /**
    * Flash color
    * @default "#FFFFFF"
@@ -1408,7 +1408,7 @@ export interface MetroEffectConfig extends BaseEffectConfig {
    * Typically white for maximum visibility and timing reference
    */
   flash_color: string;
-  
+
   /**
    * Enable graph capture
    * @default true
@@ -1416,7 +1416,7 @@ export interface MetroEffectConfig extends BaseEffectConfig {
    * Useful for monitoring system performance during operation
    */
   capture: boolean;
-  
+
   /**
    * CPU measurement window in seconds
    * @default 10
@@ -1440,7 +1440,7 @@ export interface MultiBarEffectConfig extends GradientEffectConfig {
    * Controls the movement pattern of the multicolor bar
    */
   mode: "cascade" | "wipe";
-  
+
   /**
    * Acceleration profile of bar movement
    * @default "linear"
@@ -1451,7 +1451,7 @@ export interface MultiBarEffectConfig extends GradientEffectConfig {
    * Controls how the bar accelerates and decelerates
    */
   ease_method: "ease_in_out" | "ease_in" | "ease_out" | "linear";
-  
+
   /**
    * Amount of color change per beat
    * @default 0.125
@@ -1476,7 +1476,7 @@ export interface NoiseEffectConfig extends MatrixEffectConfig {
    * Higher values create more rapid, energetic animations
    */
   speed: number;
-  
+
   /**
    * Intensity of the noise pattern
    * @default 128
@@ -1486,7 +1486,7 @@ export interface NoiseEffectConfig extends MatrixEffectConfig {
    * Higher values create more pronounced, vivid patterns
    */
   intensity: number;
-  
+
   /**
    * Stretch factor for the noise effect
    * @default 1.5
@@ -1496,7 +1496,7 @@ export interface NoiseEffectConfig extends MatrixEffectConfig {
    * Higher values create more stretched, flowing patterns
    */
   stretch: number;
-  
+
   /**
    * Zoom level for the noise pattern
    * @default 2
@@ -1506,7 +1506,7 @@ export interface NoiseEffectConfig extends MatrixEffectConfig {
    * Higher values create more detailed, fine-grained patterns
    */
   zoom: number;
-  
+
   /**
    * Decay filter for audio impulse
    * @default 0.06
@@ -1516,7 +1516,7 @@ export interface NoiseEffectConfig extends MatrixEffectConfig {
    * Lower values create longer-lasting responses to audio
    */
   impulse_decay: number;
-  
+
   /**
    * Audio reaction multiplier
    * @default 2
@@ -1526,7 +1526,7 @@ export interface NoiseEffectConfig extends MatrixEffectConfig {
    * Higher values create more dramatic visual responses to sound
    */
   multiplier: number;
-  
+
   /**
    * Enable soap smear effect
    * @default false
@@ -1550,7 +1550,7 @@ export interface PitchSpectrumEffectConfig extends GradientEffectConfig {
    * Higher values create shorter, more responsive visualization
    */
   fade_rate: number;
-  
+
   /**
    * Responsiveness to note changes in the audio
    * @default 1.0
@@ -1576,7 +1576,7 @@ export interface PixelsEffectConfig extends BaseEffectConfig {
    * Higher values create faster visual updates
    */
   speed: number;
-  
+
   /**
    * Time between pixel steps in seconds
    * @default 1
@@ -1586,7 +1586,7 @@ export interface PixelsEffectConfig extends BaseEffectConfig {
    * Lower values create more rapid pixel movements
    */
   step_period: number;
-  
+
   /**
    * Number of pixels per step
    * @default 1
@@ -1596,7 +1596,7 @@ export interface PixelsEffectConfig extends BaseEffectConfig {
    * Higher values create larger pixel groups
    */
   pixels: number;
-  
+
   /**
    * Pixel color
    * @default "#FFFFFF"
@@ -1605,7 +1605,7 @@ export interface PixelsEffectConfig extends BaseEffectConfig {
    * Used for diagnostics or creating simple patterns
    */
   pixel_color: string;
-  
+
   /**
    * Accumulate pixels instead of moving a single group
    * @default false
@@ -1631,7 +1631,7 @@ export interface Plasma2dEffectConfig extends MatrixEffectConfig {
    * Controls which part of the audio spectrum drives the plasma effect
    */
   frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /**
    * Vertical density parameter
    * @default 0.1
@@ -1642,7 +1642,7 @@ export interface Plasma2dEffectConfig extends MatrixEffectConfig {
    * Higher values create tighter, more compressed patterns
    */
   density_vertical: number;
-  
+
   /**
    * Twist parameter
    * @default 0.07
@@ -1652,7 +1652,7 @@ export interface Plasma2dEffectConfig extends MatrixEffectConfig {
    * Higher values create more twisted, swirling effects
    */
   twist: number;
-  
+
   /**
    * Radius parameter
    * @default 0.2
@@ -1662,7 +1662,7 @@ export interface Plasma2dEffectConfig extends MatrixEffectConfig {
    * Higher values create larger, more blooming patterns
    */
   radius: number;
-  
+
   /**
    * Density parameter
    * @default 0.5
@@ -1672,7 +1672,7 @@ export interface Plasma2dEffectConfig extends MatrixEffectConfig {
    * Higher values create more detailed, intricate effects
    */
   density: number;
-  
+
   /**
    * Lower density band
    * @default 0.5
@@ -1699,7 +1699,7 @@ export interface PlasmaWLEDEffectConfig extends MatrixEffectConfig {
    * Controls which part of the audio spectrum drives the plasma effect
    */
   frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /**
    * Base animation speed of the plasma effect
    * @default 128
@@ -1709,7 +1709,7 @@ export interface PlasmaWLEDEffectConfig extends MatrixEffectConfig {
    * Higher values create faster, more dynamic animations
    */
   speed: number;
-  
+
   /**
    * Horizontal stretch factor for the plasma pattern
    * @default 128
@@ -1719,7 +1719,7 @@ export interface PlasmaWLEDEffectConfig extends MatrixEffectConfig {
    * Higher values create wider, more stretched patterns
    */
   stretch_horizontal: number;
-  
+
   /**
    * Vertical stretch factor for the plasma pattern
    * @default 128
@@ -1729,7 +1729,7 @@ export interface PlasmaWLEDEffectConfig extends MatrixEffectConfig {
    * Higher values create taller, more stretched patterns
    */
   stretch_vertical: number;
-  
+
   /**
    * Audio to pattern size multiplier
    * @default 0.4
@@ -1739,7 +1739,7 @@ export interface PlasmaWLEDEffectConfig extends MatrixEffectConfig {
    * Higher values make audio create more dramatic size changes
    */
   size_multiplication: number;
-  
+
   /**
    * Audio to animation speed multiplier
    * @default 0.5
@@ -1763,7 +1763,7 @@ export interface PowerEffectConfig extends GradientEffectConfig {
    * Creates sharp, impactful highlights synchronized with beats
    */
   sparks_color: string;
-  
+
   /**
    * Bass decay rate
    * @default 0.05
@@ -1773,7 +1773,7 @@ export interface PowerEffectConfig extends GradientEffectConfig {
    * Lower values create longer-lasting bass visualizations
    */
   bass_decay_rate: number;
-  
+
   /**
    * Sparks decay rate
    * @default 0.05
@@ -1797,7 +1797,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Typically used for the main raindrop color
    */
   lows_color: string;
-  
+
   /**
    * Frequency to pulse the entire strip
    * @default "Off"
@@ -1808,7 +1808,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Controls which frequency range causes the entire strip to pulse in brightness
    */
   pulse_strip: "Off" | "Lows" | "Mids" | "Highs";
-  
+
   /**
    * Color for mid-range sounds
    * @default "red"
@@ -1817,7 +1817,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Typically used for secondary raindrop effects
    */
   mids_color: string;
-  
+
   /**
    * Color for high frequency sounds
    * @default "blue"
@@ -1826,7 +1826,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Typically used for tertiary raindrop effects
    */
   high_color: string;
-  
+
   /**
    * Sensitivity to low sounds
    * @default 0.1
@@ -1836,7 +1836,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Higher values create more raindrops from lower sound levels
    */
   lows_sensitivity: number;
-  
+
   /**
    * Sensitivity to mid sounds
    * @default 0.05
@@ -1846,7 +1846,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Higher values create more raindrops from lower sound levels
    */
   mids_sensitivity: number;
-  
+
   /**
    * Sensitivity to high sounds
    * @default 0.1
@@ -1856,7 +1856,7 @@ export interface RainEffectConfig extends BaseEffectConfig {
    * Higher values create more raindrops from lower sound levels
    */
   high_sensitivity: number;
-  
+
   /**
    * Droplet animation style
    * @default "Blob"
@@ -1881,7 +1881,7 @@ export interface RainbowEffectConfig extends BaseEffectConfig {
    * Higher values create faster color transitions
    */
   speed: number;
-  
+
   /**
    * Frequency of the rainbow pattern
    * @default 1
@@ -1907,7 +1907,7 @@ export interface RandomFlashEffectConfig extends BaseEffectConfig {
    * Higher values create faster, more energetic patterns
    */
   speed: number;
-  
+
   /**
    * Color of the random flashes
    * @default "#FFFFFF"
@@ -1916,7 +1916,7 @@ export interface RandomFlashEffectConfig extends BaseEffectConfig {
    * Default white creates bright, stark highlights
    */
   hit_color: string;
-  
+
   /**
    * Duration of each flash in seconds
    * @default 0.1
@@ -1927,7 +1927,7 @@ export interface RandomFlashEffectConfig extends BaseEffectConfig {
    * Higher values create longer-lasting glows
    */
   hit_duration: number;
-  
+
   /**
    * Frequency of random flashes per second
    * @default 2
@@ -1937,7 +1937,7 @@ export interface RandomFlashEffectConfig extends BaseEffectConfig {
    * Higher values create more frequent, dense flashing patterns
    */
   hit_probability_per_sec: number;
-  
+
   /**
    * Size of each flash relative to strip length
    * @default 0.1
@@ -1956,25 +1956,25 @@ export interface RandomFlashEffectConfig extends BaseEffectConfig {
 export interface RealStrobeEffectConfig extends BaseEffectConfig {
   /** Color gradient for bass strobes */
   gradient: string;
-  
+
   /** Gradient roll amount */
   gradient_roll: number;
-  
+
   /** Color change per bass hit */
   color_step: number;
-  
+
   /** Bass strobe decay rate */
   bass_strobe_decay_rate: number;
-  
+
   /** Percussive strobe color */
   strobe_color: string;
-  
+
   /** Percussive strobe width */
   strobe_width: number;
-  
+
   /** Percussive strobe decay rate */
   strobe_decay_rate: number;
-  
+
   /** Color shift delay */
   color_shift_delay: number;
 }
@@ -1982,37 +1982,38 @@ export interface RealStrobeEffectConfig extends BaseEffectConfig {
 /**
  * Scan effect configuration
  */
-export interface ScanEffectConfig extends GradientEffectConfig, ModulationConfig {
+export interface ScanEffectConfig
+  extends GradientEffectConfig, ModulationConfig {
   /** Whether to bounce at edges */
   bounce: boolean;
-  
+
   /** Width of scan eye as percentage */
   scan_width: number;
-  
+
   /** Scan base speed */
   speed: number;
-  
+
   /** Scan color */
   color_scan: string;
-  
+
   /** Frequency range for beat detection */
   frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
-  
+
   /** Speed impact multiplier */
   multiplier: number;
-  
+
   /** Adjust color intensity with audio */
   color_intensity: boolean;
-  
+
   /** Use gradient for colors */
   use_grad: boolean;
-  
+
   /** Spread gradient across scan */
   full_grad?: boolean;
-  
+
   /** Enable advanced options */
   advanced: boolean;
-  
+
   /** Number of scan elements */
   count?: number;
 }
@@ -2020,16 +2021,19 @@ export interface ScanEffectConfig extends GradientEffectConfig, ModulationConfig
 /**
  * Scan and Flare effect configuration
  */
-export interface ScanAndFlareEffectConfig extends Omit<ScanEffectConfig, 'advanced' | 'count'> {
+export interface ScanAndFlareEffectConfig extends Omit<
+  ScanEffectConfig,
+  "advanced" | "count"
+> {
   /** Maximum sparkles */
   sparkles_max: number;
-  
+
   /** Sparkle size relative to scan */
   sparkles_size: number;
-  
+
   /** Sparkle fade time */
   sparkles_time: number;
-  
+
   /** Audio threshold for sparkles */
   sparkles_threshold: number;
 }
@@ -2037,25 +2041,28 @@ export interface ScanAndFlareEffectConfig extends Omit<ScanEffectConfig, 'advanc
 /**
  * Scan Multi effect configuration
  */
-export interface ScanMultiEffectConfig extends Omit<ScanEffectConfig, 'color_scan'> {
+export interface ScanMultiEffectConfig extends Omit<
+  ScanEffectConfig,
+  "color_scan"
+> {
   /** Color for low power scan */
   color_low: string;
-  
+
   /** Color for mid power scan */
   color_mid: string;
-  
+
   /** Color for high power scan */
   color_high: string;
-  
+
   /** Audio processing source */
   input_source?: "Power" | "Melbank";
-  
+
   /** Attack filter damping */
   attack?: number;
-  
+
   /** Decay filter damping */
   decay?: number;
-  
+
   /** Enable audio filters */
   filter?: boolean;
 }
@@ -2066,22 +2073,22 @@ export interface ScanMultiEffectConfig extends Omit<ScanEffectConfig, 'color_sca
 export interface ScrollEffectConfig extends BaseEffectConfig {
   /** Blur amount */
   blur: number;
-  
+
   /** Scroll speed */
   speed: number;
-  
+
   /** Color decay rate */
   decay: number;
-  
+
   /** Audio threshold */
   threshold: number;
-  
+
   /** Color for low sounds */
   color_lows: string;
-  
+
   /** Color for mid sounds */
   color_mids: string;
-  
+
   /** Color for high sounds */
   color_high: string;
 }
@@ -2089,10 +2096,13 @@ export interface ScrollEffectConfig extends BaseEffectConfig {
 /**
  * Scroll+ effect configuration
  */
-export interface ScrollPlusEffectConfig extends Omit<ScrollEffectConfig, 'speed'> {
+export interface ScrollPlusEffectConfig extends Omit<
+  ScrollEffectConfig,
+  "speed"
+> {
   /** Device width scrolled per second */
   scroll_per_sec: number;
-  
+
   /** Decay rate per second */
   decay_per_sec: number;
 }
@@ -2100,10 +2110,11 @@ export interface ScrollPlusEffectConfig extends Omit<ScrollEffectConfig, 'speed'
 /**
  * Single Color effect configuration
  */
-export interface SingleColorEffectConfig extends BaseEffectConfig, ModulationConfig {
+export interface SingleColorEffectConfig
+  extends BaseEffectConfig, ModulationConfig {
   /** Animation speed */
   speed: number;
-  
+
   /** Color of the strip */
   color: string;
 }
@@ -2121,14 +2132,20 @@ export interface SpectrumEffectConfig extends BaseEffectConfig {
  */
 export interface StrobeEffectConfig extends GradientEffectConfig {
   /** Strobes per beat */
-  strobe_frequency: "1/1 (.,. )" | "1/2 (.-. )" | "1/4 (.o. )" | "1/8 (◉◡◉ )" | "1/16 (◉﹏◉ )" | "1/32 (⊙▃⊙ )";
-  
+  strobe_frequency:
+    | "1/1 (.,. )"
+    | "1/2 (.-. )"
+    | "1/4 (.o. )"
+    | "1/8 (◉◡◉ )"
+    | "1/16 (◉﹏◉ )"
+    | "1/32 (⊙▃⊙ )";
+
   /** Single strobe fade rate */
   strobe_decay: number;
-  
+
   /** Strobe brightness decay across beat */
   beat_decay: number;
-  
+
   /** Strobe firing pattern */
   strobe_pattern: "****" | "*.*." | ".*.*" | "*..." | "...*";
 }
@@ -2139,46 +2156,60 @@ export interface StrobeEffectConfig extends GradientEffectConfig {
 export interface Texter2dEffectConfig extends MatrixEffectConfig {
   /** Apply alpha effect to text */
   alpha: boolean;
-  
+
   /** Text effect option switch 1 */
   option_1: boolean;
-  
+
   /** Text effect option switch 2 */
   option_2: boolean;
-  
+
   /** General value for text effects */
   value_option_1: number;
-  
+
   /** Font selection */
-  font: "Roboto Regular" | "Roboto Bold" | "Roboto Black" | "Stop" | "Technique" | "8bitOperatorPlus8" | "Press Start 2P" | "Blade-5x8";
-  
+  font:
+    | "Roboto Regular"
+    | "Roboto Bold"
+    | "Roboto Black"
+    | "Stop"
+    | "Technique"
+    | "8bitOperatorPlus8"
+    | "Press Start 2P"
+    | "Blade-5x8";
+
   /** Text to display */
   text: string;
-  
+
   /** Font size percentage */
   height_percent: number;
-  
+
   /** Text color */
   text_color: string;
-  
+
   /** Resize quality */
   resize_method: "Fastest" | "Fast" | "Slow";
-  
+
   /** Text animation type */
-  text_effect: "Side Scroll" | "Spokes" | "Carousel" | "Wave" | "Pulse" | "Fade";
-  
+  text_effect:
+    | "Side Scroll"
+    | "Spokes"
+    | "Carousel"
+    | "Wave"
+    | "Pulse"
+    | "Fade";
+
   /** Diagnostic overlay */
   deep_diag: boolean;
-  
+
   /** Use gradient for text */
   use_gradient: boolean;
-  
+
   /** Impulse decay filter */
   impulse_decay: number;
-  
+
   /** Audio effect multiplier */
   multiplier: number;
-  
+
   /** General speed for text effects */
   speed_option_1: number;
 }
@@ -2189,22 +2220,22 @@ export interface Texter2dEffectConfig extends MatrixEffectConfig {
 export interface VumeterEffectConfig extends BaseEffectConfig {
   /** Volume peak decay filter */
   peak_decay: number;
-  
+
   /** Minimum volume color */
   color_min: string;
-  
+
   /** Maximum volume warning color */
   color_max: string;
-  
+
   /** Normal volume range color */
   color_mid: string;
-  
+
   /** Peak indicator color */
   color_peak: string;
-  
+
   /** Peak indicator size */
   peak_percent: number;
-  
+
   /** Maximum volume cutoff */
   max_volume: number;
 }
@@ -2215,16 +2246,16 @@ export interface VumeterEffectConfig extends BaseEffectConfig {
 export interface WaterEffectConfig extends AtmosphericEffectConfig {
   /** Vertical position shift */
   vertical_shift: number;
-  
+
   /** Bass ripple size */
   bass_size: number;
-  
+
   /** Mid frequency ripple size */
   mids_size: number;
-  
+
   /** High frequency ripple size */
   high_size: number;
-  
+
   /** Ripple viscosity */
   viscosity: number;
 }

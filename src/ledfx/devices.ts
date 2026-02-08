@@ -1,30 +1,35 @@
-import { Effect } from "./types/effect"
+import { Effect } from "./types/effect";
 
 export const rails = (effect: Effect) => {
   return {
-    device: "grups",
-    data: effect
-  }
-}
+    device: "bedroom",
+    // device: "grups",
+    data: effect,
+  };
+};
 
 export const rails2 = (effect: Effect) => {
   return {
-    device: "gledopto",
-    data: effect
-  }
-}
+    device: "bedroom",
+    // device: "gledopto",
+    data: effect,
+  };
+};
 
 export const ceiling = (effect: Effect) => {
   return {
-    device: "wled-7eaef4",
+    device: "office",
+    // device: "wled-7eaef4",
     // device: "sufit-test",
-    data: effect
-  }
-}
+    data: effect,
+  };
+};
 
-export type DeviceKey = "rails" | "ceiling" | "rails2"
+export type DeviceKey = "rails" | "ceiling" | "rails2";
 
-export type DeviceEffect = 
+export const ALL_DEVICE_KEYS: DeviceKey[] = ["rails", "rails2", "ceiling"];
+
+export type DeviceEffect =
   | ReturnType<typeof rails>
   | ReturnType<typeof ceiling>
-  | ReturnType<typeof rails2>
+  | ReturnType<typeof rails2>;

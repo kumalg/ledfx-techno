@@ -1,28 +1,17 @@
-import { useCallback, useRef } from 'react'
-import './App.css'
-import ReactPlayer from 'react-player'
-import { OnProgressProps } from 'react-player/base'
-import { PLAYLIST, VIDEO_URL } from './playlists/restrictedGroupChat'
-import { durationToMilliseconds } from './helpers'
-import { api } from './ledfx/api'
-import { ceiling, DeviceEffect, rails, rails2 } from './ledfx/devices'
+import { useCallback, useRef } from "react";
+import "./App.css";
+import ReactPlayer from "react-player";
+import { OnProgressProps } from "react-player/base";
+import { PLAYLIST, VIDEO_URL } from "./playlists/restrictedGroupChatNew";
+import { durationToMilliseconds } from "./helpers";
+import { api } from "./ledfx/api";
+import { type DeviceEffect, type DeviceKey } from "./ledfx/devices";
+import { createEffectSelector } from "./ledfx/effectSelection";
 
-const playlistWithMilliseconds = new Map<number, DeviceEffect[]>(
-  [...PLAYLIST.entries()].map(([time, effects]) => [durationToMilliseconds(time), Object.entries(effects).map(([device, effect]) => {
-    if (device === "rails") {
-      return rails(effect)
-    }
-    if (device === "rails2") {
-      return rails2(effect)
-    }
-    if (device === "ceiling") {
-      return ceiling(effect)
-    }
-    throw new Error(`Unknown device: ${device}`)
-  })])
-);
+const { getEffectsPerDeviceAtTime, playlistSize } =
+  createEffectSelector(PLAYLIST);
 
-console.log(playlistWithMilliseconds.size, "effects in playlist");
+console.log(playlistSize, "effects in playlist");
 
 const pauseAtEndTime = durationToMilliseconds("01:17:28");
 
@@ -30,28 +19,36 @@ function App() {
   const playerRef = useRef<ReactPlayer>(null);
 
   const videoPlayed = useRef(false);
-  const lastPlayerTime = useRef<{ videoTime: number, timestamp: number } | undefined>(undefined);
-  const lastPlayedEffectTime = useRef<number | undefined>(undefined);
-  const awaitedEffectTimes = useRef(new Set<number>());
+  const lastPlayerTime = useRef<
+    { videoTime: number; timestamp: number } | undefined
+  >(undefined);
+  /** Last applied playlist time per device; only that device is updated when its effect changes. */
+  const lastAppliedSourceTimePerDevice = useRef<
+    Partial<Record<DeviceKey, number>>
+  >({});
+  const applyingEffects = useRef(false);
 
   const pausedAtEnd = useRef(false);
 
   const handleProgress = useCallback((props: OnProgressProps) => {
-    lastPlayerTime.current = { videoTime: props.playedSeconds, timestamp: Date.now() };
+    lastPlayerTime.current = {
+      videoTime: props.playedSeconds,
+      timestamp: Date.now(),
+    };
   }, []);
 
   const handlePlay = () => {
     videoPlayed.current = true;
     loop();
-  }
+  };
 
   const handleEnded = () => {
     videoPlayed.current = false;
-  }
+  };
 
   const handlePaused = () => {
     videoPlayed.current = false;
-  }
+  };
 
   const loop = async () => {
     if (!videoPlayed.current) {
@@ -65,29 +62,42 @@ function App() {
 
     const now = Date.now();
     const timeDiff = now - lastPlayerTime.current.timestamp;
-    const milliseconds = (lastPlayerTime.current.videoTime * 1000) + timeDiff;
+    const milliseconds = lastPlayerTime.current.videoTime * 1000 + timeDiff;
 
-    const allPreviousTimes = [...playlistWithMilliseconds.keys()].filter(time => time <= milliseconds);
-    const lastTime = allPreviousTimes[allPreviousTimes.length - 1];
+    const effectsPerDevice = getEffectsPerDeviceAtTime(milliseconds);
+    const toApply: { key: DeviceKey; effect: DeviceEffect }[] = [];
+    for (const [key, { sourceTime, effect }] of effectsPerDevice) {
+      if (lastAppliedSourceTimePerDevice.current[key] !== sourceTime) {
+        toApply.push({ key, effect });
+      }
+    }
 
-    if (lastTime && lastPlayedEffectTime.current !== lastTime && !awaitedEffectTimes.current.has(lastTime)) {
-      awaitedEffectTimes.current.add(lastTime);
+    if (toApply.length > 0 && !applyingEffects.current) {
+      applyingEffects.current = true;
 
-      const effects = playlistWithMilliseconds.get(lastTime)!
-
-      const promises = await Promise.all(effects.map(effect => api.setEffect(effect.device, effect.data)));
-      const parsed = await Promise.all(promises.map(result => result.json()))
+      const effects = toApply.map(({ effect }) => effect);
+      const promises = await Promise.all(
+        effects.map(({ device, data }) => api.setEffect(device, data)),
+      );
+      const parsed = await Promise.all(promises.map((result) => result.json()));
       const results = parsed.map(({ status }) => status);
-      const success = results.every(status => status === 'success');
+      const success = results.every((status) => status === "success");
 
       if (success) {
-        console.log(`Successfully set effect on ${effects.map(effect => effect.device).join(', ')}`);
-        lastPlayedEffectTime.current = lastTime;
+        for (const { key } of toApply) {
+          const sourceTime = effectsPerDevice.get(key)!.sourceTime;
+          lastAppliedSourceTimePerDevice.current[key] = sourceTime;
+        }
+        console.log(
+          `Successfully set effect on ${effects.map(({ device }) => device).join(", ")}`,
+        );
       } else {
-        console.error(`Failed to set effect on ${effects.map(effect => effect.device).join(', ')}`);
+        console.error(
+          `Failed to set effect on ${effects.map(({ device }) => device).join(", ")}`,
+        );
       }
 
-      awaitedEffectTimes.current.delete(lastTime);
+      applyingEffects.current = false;
     }
 
     if (!pausedAtEnd.current && milliseconds >= pauseAtEndTime) {
@@ -98,7 +108,7 @@ function App() {
     }
 
     setTimeout(loop, 100);
-  }
+  };
 
   return (
     <div>
@@ -112,7 +122,7 @@ function App() {
         onPause={handlePaused}
       />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,3 +1,5 @@
+import { FrequencyRange } from "./frequencyRange";
+
 /**
  * Base configuration properties shared by all effects
  */
@@ -179,7 +181,7 @@ export interface AudioReactiveConfig {
    * "High" - Responds to high-frequency sounds
    * Controls which part of the audio spectrum drives the effect
    */
-  frequency_range?: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range?: FrequencyRange;
 
   /**
    * Audio response multiplier
@@ -406,7 +408,7 @@ export interface BladePowerPlusEffectConfig extends GradientEffectConfig {
    * "High" - Responds to high-frequency sounds
    * Controls which part of the audio spectrum drives the effect
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 }
 
 /**
@@ -833,7 +835,7 @@ export interface Equalizer2dEffectConfig extends MatrixEffectConfig {
    * Determines which frequency range controls rotation when spin is enabled
    * Different ranges create different rotation patterns based on music content
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 
   /**
    * Spin impulse multiplier
@@ -943,7 +945,7 @@ export interface GameOfLifeEffectConfig extends MatrixEffectConfig {
    * "High" - Responds to high frequencies
    * Controls which audio frequencies trigger new cell generation
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 
   /**
    * Generate entities on beat
@@ -1045,7 +1047,7 @@ export interface ImageSpinEffectConfig extends MatrixEffectConfig {
    * "High" - Responds to high-frequency sounds
    * Controls which part of the audio spectrum affects the image size and rotation
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 
   /**
    * Audio input amplification factor
@@ -1278,7 +1280,7 @@ export interface MagnitudeEffectConfig extends GradientEffectConfig {
    * "High" - Responds to high-frequency sounds
    * Controls which part of the audio spectrum drives the magnitude effect
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 }
 
 /**
@@ -1630,7 +1632,7 @@ export interface Plasma2dEffectConfig extends MatrixEffectConfig {
    * "High" - Responds to high-frequency sounds
    * Controls which part of the audio spectrum drives the plasma effect
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 
   /**
    * Vertical density parameter
@@ -1698,7 +1700,7 @@ export interface PlasmaWLEDEffectConfig extends MatrixEffectConfig {
    * "High" - Responds to high-frequency sounds
    * Controls which part of the audio spectrum drives the plasma effect
    */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 
   /**
    * Base animation speed of the plasma effect
@@ -1997,7 +1999,7 @@ export interface ScanEffectConfig
   color_scan: string;
 
   /** Frequency range for beat detection */
-  frequency_range: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range: FrequencyRange;
 
   /** Speed impact multiplier */
   multiplier: number;

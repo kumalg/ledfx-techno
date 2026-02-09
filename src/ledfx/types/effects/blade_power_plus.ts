@@ -1,3 +1,5 @@
+import { FrequencyRange } from "../frequencyRange";
+
 /**
  * Type representing the configuration for a BladePowerPlus effect.
  */
@@ -51,7 +53,7 @@ export type BladePowerPlusEffect = {
    * Frequency range for the effect.
    * @remarks Options: "Beat", "Bass", "Lows (beat+bass)", "Mids", "High"
    */
-  frequency_range?: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range?: FrequencyRange;
 
   /**
    * Gradient name or color for the effect.

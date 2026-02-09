@@ -1,3 +1,5 @@
+import { FrequencyRange } from "../frequencyRange";
+
 /**
  * Type representing the configuration for a Scan effect.
  */
@@ -89,7 +91,7 @@ export interface ScanEffect {
    * Frequency range for beat detection.
    * @remarks Options: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High"
    */
-  frequency_range?: "Beat" | "Bass" | "Lows (beat+bass)" | "Mids" | "High";
+  frequency_range?: FrequencyRange;
 
   /**
    * Speed impact multiplier.

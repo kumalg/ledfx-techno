@@ -1,6 +1,7 @@
 // Made with LedFX 2.0.109
 
 import { effect } from "../ledfx/types/effect";
+import { FrequencyRange } from "../ledfx/types/frequencyRange";
 import type { Playlist, PlaylistEntry, TimeString } from "./types";
 
 export const VIDEO_URL = "https://www.youtube.com/watch?v=shFiitpKUSo";
@@ -118,7 +119,9 @@ const Playlist: Playlist = {
     }),
   },
   "01:41": {
-    rails: effect.bladeDefault("red", { frequency_range: "Lows (beat+bass)" }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.LowsBeatBass,
+    }),
   },
   "01:53": {
     rails: effect("scan", {
@@ -335,10 +338,13 @@ const Playlist: Playlist = {
     rails: effect.off(),
   },
   "07:18": {
-    rails: effect.bladeDefault("red", { frequency_range: "Bass" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Bass }),
   },
   "07:20": {
-    rails: effect.bladeDefault("red", { frequency_range: "Bass", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Bass,
+      flip: true,
+    }),
   },
   "07:25": {
     ceiling: effect("real_strobe", {
@@ -523,13 +529,13 @@ const Playlist: Playlist = {
     rails: effect.off(),
   },
   "12:53": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "12:54.200": {
     rails: effect.off(),
   },
   "13:05": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "13:19": {
     rails: effect.off(),
@@ -562,7 +568,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "14:13.500": {
@@ -602,7 +608,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "15:01": {
@@ -612,7 +618,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("power", {
       gradient: "pink",
@@ -625,14 +631,16 @@ const Playlist: Playlist = {
     rails: effect.off(),
   },
   "15:25": {
-    rails: effect.bladeDefault("pink", { frequency_range: "Lows (beat+bass)" }),
+    rails: effect.bladeDefault("pink", {
+      frequency_range: FrequencyRange.LowsBeatBass,
+    }),
   },
   "15:26.500": {
     rails: effect.off(),
   },
   "15:28": {
     rails: effect.bladeDefault("pink", {
-      frequency_range: "Lows (beat+bass)",
+      frequency_range: FrequencyRange.LowsBeatBass,
       flip: true,
     }),
   },
@@ -668,7 +676,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "16:14": {
@@ -678,7 +686,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("real_strobe", {
       gradient: "white",
@@ -693,7 +701,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect.off(),
   },
@@ -712,14 +720,16 @@ const Playlist: Playlist = {
     ceiling: effect("singleColor", { color: "green", brightness: 0.15 }),
   },
   "16:46": {
-    rails: effect.bladeDefault("green", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("green", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "16:47.500": {
     rails: effect.off(),
   },
   "16:49": {
     rails: effect.bladeDefault("green", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -757,12 +767,12 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "17:27": {
     rails: effect.bladeDefault("green", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
     ceiling: effect("real_strobe", {
@@ -772,7 +782,9 @@ const Playlist: Playlist = {
     }),
   },
   "17:40": {
-    rails: effect.bladeDefault("green", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("green", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "17:52": {
     rails: effect("scan", {
@@ -781,7 +793,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "18:03": {
@@ -792,7 +804,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "18:10": {
@@ -854,7 +866,7 @@ const Playlist: Playlist = {
   },
   "19:37": {
     rails: effect.bladeDefault("green", {
-      frequency_range: "Lows (beat+bass)",
+      frequency_range: FrequencyRange.LowsBeatBass,
     }),
   },
   "19:43": {
@@ -864,7 +876,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("power", {
       gradient: "white",
@@ -936,7 +948,7 @@ const Playlist: Playlist = {
   },
   "21:19": {
     rails: effect.bladeDefault("orange", {
-      frequency_range: "Lows (beat+bass)",
+      frequency_range: FrequencyRange.LowsBeatBass,
     }),
   },
   "21:25": {
@@ -962,7 +974,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 1,
     }),
     ceiling: effect("power", {
@@ -1026,7 +1038,9 @@ const Playlist: Playlist = {
     }),
   },
   "25:50": {
-    rails: effect.bladeDefault("red", { frequency_range: "Lows (beat+bass)" }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.LowsBeatBass,
+    }),
     ceiling: effect("power", {
       gradient: "red",
       background_color: "black",
@@ -1050,7 +1064,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
   },
@@ -1061,7 +1075,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
   },
@@ -1107,10 +1121,13 @@ const Playlist: Playlist = {
     }),
   },
   "27:20.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "27:23.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "27:26.800": {
     rails: effect.gradient2Scan("red", 10, 7, { mirror: true }),
@@ -1131,7 +1148,7 @@ const Playlist: Playlist = {
     rails: effect.off(),
   },
   "27:35.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "27:47.700": {
     rails: effect.gradient2Scan("red", 10, 7),
@@ -1170,7 +1187,7 @@ const Playlist: Playlist = {
     }),
   },
   "28:12": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "28:14": {
     rails: effect.off(),
@@ -1224,7 +1241,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "29:17.500": {
@@ -1233,7 +1250,7 @@ const Playlist: Playlist = {
       scan_width: 20,
       speed: 100,
       count: 3,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "29:35.500": {
@@ -1260,7 +1277,7 @@ const Playlist: Playlist = {
       scan_width: 20,
       speed: 100,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "30:17.500": {
@@ -1291,7 +1308,7 @@ const Playlist: Playlist = {
       speed: 50,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "30:47.700": {
@@ -1309,11 +1326,13 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "31:09": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "31:11.600": {
     rails: effect("random_flash", {
@@ -1332,7 +1351,10 @@ const Playlist: Playlist = {
     }),
   },
   "31:24": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "31:36": {
     rails: effect.gradient2Scan("blue", 10, 1),
@@ -1380,11 +1402,13 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "32:56.500": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
     ceiling: effect.off(),
   },
   "32:59.800": {
@@ -1436,7 +1460,9 @@ const Playlist: Playlist = {
     }),
   },
   "33:36": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "33:42": {
     rails: effect("random_flash", {
@@ -1461,7 +1487,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "34:00": {
@@ -1488,7 +1514,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   //
@@ -1545,7 +1571,7 @@ const Playlist: Playlist = {
     }),
   },
   "35:22": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "35:23.500": {
     rails: effect("real_strobe", {
@@ -1668,7 +1694,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "37:45.700": {
@@ -1698,7 +1724,7 @@ const Playlist: Playlist = {
     }),
   },
   "38:58": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "39:10": {
     rails: effect("scan", {
@@ -1707,7 +1733,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
   },
@@ -1743,7 +1769,10 @@ const Playlist: Playlist = {
     }),
   },
   "40:17": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "40:29.500": {
     rails: effect.gradient1Scan("red", 5, 1),
@@ -1785,7 +1814,9 @@ const Playlist: Playlist = {
     }),
   },
   "41:19": {
-    rails: effect.bladeDefault("white", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("white", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "41:22": {
     rails: effect.off(),
@@ -1815,7 +1846,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
     ceiling: effect("power", {
@@ -1869,7 +1900,7 @@ const Playlist: Playlist = {
       speed: 50,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "43:08": {
@@ -1886,10 +1917,15 @@ const Playlist: Playlist = {
     }),
   },
   "43:20": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "43:26": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "43:28.800": {
     rails: effect("random_flash", {
@@ -1988,7 +2024,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect.strobeBass("white", {
       background_color: "black",
@@ -2086,7 +2122,7 @@ const Playlist: Playlist = {
       scan_width: 20,
       speed: 100,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "47:08": {
@@ -2157,7 +2193,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "47:50": {
@@ -2169,7 +2205,7 @@ const Playlist: Playlist = {
       count: 2,
       bounce: false,
       flip: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "48:02.300": {
@@ -2266,7 +2302,7 @@ const Playlist: Playlist = {
       count: 3,
       bounce: true,
       mirror: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "49:25": {
@@ -2354,7 +2390,7 @@ const Playlist: Playlist = {
   },
   "50:37": {
     rails: effect.bladeDefault("blue", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       brightness: 1,
     }),
     ceiling: effect("power", {
@@ -2391,11 +2427,13 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "51:24.500": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "51:26.500": {
     rails: effect("scroll", {
@@ -2436,7 +2474,7 @@ const Playlist: Playlist = {
   },
   "52:07": {
     rails: effect.bladeDefault("green", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -2447,7 +2485,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
     ceiling: effect.strobeBass("white", {
@@ -2466,7 +2504,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
     ceiling: effect("power", {
@@ -2562,7 +2600,7 @@ const Playlist: Playlist = {
   },
   "54:08.500": {
     ceiling: effect.off(),
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "54:21": {
     rails: effect("singleColor", { color: "red", brightness: 0.1 }),
@@ -2615,7 +2653,7 @@ const Playlist: Playlist = {
       speed: 50,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "55:14.500": {
@@ -2646,7 +2684,9 @@ const Playlist: Playlist = {
     }),
   },
   "55:41.700": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "55:44.300": {
     rails: effect("real_strobe", {
@@ -2663,7 +2703,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "56:08.500": {
@@ -2708,7 +2748,7 @@ const Playlist: Playlist = {
       speed: 50,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
     ceiling: effect("power", {
@@ -2725,13 +2765,13 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 0,
     }),
   },
   "57:14.700": {
     rails: effect.bladeDefault("#ff2800", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -2808,11 +2848,11 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 1,
     }),
 
-    // rails: effect("scan_multi", { color_scan: "#ff2800", scan_width: 10, speed: 100, count: 2, bounce: true, frequency_range: "Mids" }),
+    // rails: effect("scan_multi", { color_scan: "#ff2800", scan_width: 10, speed: 100, count: 2, bounce: true, frequency_range: FrequencyRange.Mids }),
     // rails: effect("rain", { mids_color: "#ff2800", lows_color: "black", high_color: "black", raindrop_animation: "Laser", mids_sensitivity: 0.3, lows_sensitivity: 0.03, high_sensitivity: 0.03 }),
     // rails: effect("power", { gradient: "#050505", background_color: "black", sparks_color: "#ff2800", brightness: 1 }),
   },
@@ -2894,7 +2934,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("power", {
       gradient: "white",
@@ -2911,7 +2951,7 @@ const Playlist: Playlist = {
       count: 3,
       bounce: false,
       mirror: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "59:40": {
@@ -2942,7 +2982,7 @@ const Playlist: Playlist = {
       scan_width: 10,
       speed: 50,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:00:17": {
@@ -2973,7 +3013,10 @@ const Playlist: Playlist = {
     }),
   },
   "01:00:30": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "01:00:35.700": {
     rails: effect("scan", {
@@ -2982,7 +3025,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect.strobeBass("gray", {
       background_color: "black",
@@ -2991,7 +3034,7 @@ const Playlist: Playlist = {
   },
   "01:00:47.500": {
     rails: effect.bladeDefault("white", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: false,
     }),
     ceiling: effect.strobeBass("red", {
@@ -3006,7 +3049,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect.strobeBass("blue", {
       background_color: "black",
@@ -3021,7 +3064,7 @@ const Playlist: Playlist = {
       speed: 30,
       count: 3,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("power", {
       gradient: "white",
@@ -3078,18 +3121,22 @@ const Playlist: Playlist = {
     }),
   },
   "01:02:00": {
-    rails: effect.bladeDefault("blue", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("blue", {
+      frequency_range: FrequencyRange.Mids,
+    }),
     ceiling: effect.strobeBass("blue", {
       background_color: "black",
       gradient: "white",
     }),
   },
   "01:02:11.500": {
-    rails: effect.bladeDefault("green", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("green", {
+      frequency_range: FrequencyRange.Mids,
+    }),
   },
   "01:02:15": {
     rails: effect.bladeDefault("green", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -3101,7 +3148,7 @@ const Playlist: Playlist = {
       speed: 20,
       count: 3,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect.strobeBass("blue", {
       background_color: "black",
@@ -3116,7 +3163,7 @@ const Playlist: Playlist = {
       speed: 50,
       count: 3,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:02:48": {
@@ -3142,7 +3189,7 @@ const Playlist: Playlist = {
       count: 1,
       bounce: true,
       mirror: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("power", {
       gradient: "white",
@@ -3156,7 +3203,7 @@ const Playlist: Playlist = {
     ceiling: effect("singleColor", { color: "#ff2800", brightness: 0.1 }),
   },
   "01:03:17.800": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "01:03:20.300": {
     ceiling: effect.strobeBass("red", {
@@ -3235,7 +3282,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect("power", {
       gradient: "red",
@@ -3253,7 +3300,7 @@ const Playlist: Playlist = {
     }),
   },
   "01:05:03": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
     ceiling: effect.strobeBass("red", {
       background_color: "black",
       gradient: "white",
@@ -3266,11 +3313,11 @@ const Playlist: Playlist = {
       speed: 50,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:05:09.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "01:05:12.200": {
     rails: effect("scan", {
@@ -3279,7 +3326,7 @@ const Playlist: Playlist = {
       speed: 20,
       count: 2,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:05:15": {
@@ -3291,7 +3338,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 1,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       blur: 1,
     }),
   },
@@ -3325,10 +3372,15 @@ const Playlist: Playlist = {
     }),
   },
   "01:05:38.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "01:05:40": {
-    rails: effect.bladeDefault("white", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("white", {
+      frequency_range: FrequencyRange.Mids,
+    }),
     ceiling: effect.strobeBass("red", {
       background_color: "black",
       gradient: "red",
@@ -3336,7 +3388,7 @@ const Playlist: Playlist = {
   },
   "01:05:41.800": {
     rails: effect.bladeDefault("white", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -3359,7 +3411,7 @@ const Playlist: Playlist = {
   },
   "01:05:45.500": {
     rails: effect.bladeDefault("white", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -3417,7 +3469,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:06:11": {
@@ -3478,7 +3530,10 @@ const Playlist: Playlist = {
     ceiling: effect("singleColor", { color: "red", brightness: 0.1 }),
   },
   "01:07:47.900": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "01:07:49.200": {
     rails: effect.off(),
@@ -3496,7 +3551,7 @@ const Playlist: Playlist = {
   },
   "01:07:57": {
     rails: effect.bladeDefault("white", {
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       flip: true,
     }),
   },
@@ -3589,7 +3644,7 @@ const Playlist: Playlist = {
       count: 2,
       blur: 0,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:09:06": {
@@ -3682,7 +3737,7 @@ const Playlist: Playlist = {
       count: 3,
       blur: 0,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
     ceiling: effect.strobeBass("red", {
       background_color: "black",
@@ -3794,7 +3849,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 2,
       bounce: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:14:15": {
@@ -3921,7 +3976,7 @@ const Playlist: Playlist = {
       speed: 100,
       count: 3,
       bounce: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:16:37": {
@@ -3932,7 +3987,7 @@ const Playlist: Playlist = {
       count: 3,
       bounce: false,
       flip: true,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
     }),
   },
   "01:16:57": {
@@ -4014,13 +4069,16 @@ const Playlist: Playlist = {
     }),
   },
   "01:18:32": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "01:18:35.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids", flip: true }),
+    rails: effect.bladeDefault("red", {
+      frequency_range: FrequencyRange.Mids,
+      flip: true,
+    }),
   },
   "01:18:41.500": {
-    rails: effect.bladeDefault("red", { frequency_range: "Mids" }),
+    rails: effect.bladeDefault("red", { frequency_range: FrequencyRange.Mids }),
   },
   "01:18:49": {
     rails: effect("singleColor", { color: "red", brightness: 1 }),

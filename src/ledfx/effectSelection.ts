@@ -37,9 +37,16 @@ export function createEffectSelector(playlist: Map<TimeString, PlaylistEntry>) {
     }),
   );
 
-  const sortedPlaylistTimes = [...playlistWithMilliseconds.keys()].sort(
-    (a, b) => a - b,
-  );
+  const playlistTimes = [...playlistWithMilliseconds.keys()];
+  const sortedPlaylistTimes = [...playlistTimes].sort((a, b) => a - b);
+  const isSorted =
+    playlistTimes.length === sortedPlaylistTimes.length &&
+    playlistTimes.every((t, i) => t === sortedPlaylistTimes[i]);
+  if (!isSorted) {
+    console.warn(
+      "Effect selection: playlist times were not sorted by default; order has been normalized.",
+    );
+  }
 
   /**
    * For each device key, get the effect that should be active at `milliseconds`

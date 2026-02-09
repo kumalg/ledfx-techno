@@ -4,6 +4,7 @@
  */
 
 import type { EffectConfigMap } from "./effectConfigs";
+import { FrequencyRange } from "./frequencyRange";
 
 const defaultGradient =
   "linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 120, 0) 14%, rgb(255, 200, 0) 28%, rgb(0, 255, 0) 42%, rgb(0, 199, 140) 56%, rgb(0, 0, 255) 70%, rgb(128, 0, 128) 84%, rgb(255, 0, 178) 98%)";
@@ -84,7 +85,7 @@ export const bladePowerPlusDefaults: EffectConfigMap["blade_power_plus"] = {
   decay: 0.7,
   multiplier: 0.5,
   background_color: "#000000",
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
 };
 
 /** Default config for blender (base.2.1.5.json) */
@@ -190,8 +191,7 @@ export const digitalrain2dDefaults: EffectConfigMap["digitalrain2d"] = {
   rotate: 0,
   test: false,
   dump: false,
-  gradient:
-    "linear-gradient(90deg, rgb(0, 199, 140) 0%, rgb(0, 255, 50) 100%)",
+  gradient: "linear-gradient(90deg, rgb(0, 199, 140) 0%, rgb(0, 255, 50) 100%)",
   count: 1.9,
   add_speed: 30,
   width: 1,
@@ -269,7 +269,7 @@ export const equalizer2dDefaults: EffectConfigMap["equalizer2d"] = {
   ring: false,
   spin: false,
   bands: 16,
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   spin_multiplier: 1,
   spin_decay: 0.1,
 };
@@ -322,7 +322,7 @@ export const gameOfLifeDefaults: EffectConfigMap["game_of_life"] = {
   health_checks: "All",
   base_game_speed: 30,
   health_check_interval: 5,
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   beat_inject: true,
   impulse_decay: 0.05,
 };
@@ -380,7 +380,7 @@ export const imagespinDefaults: EffectConfigMap["imagespin"] = {
   test: false,
   dump: false,
   pattern: false,
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   multiplier: 0.5,
   min_size: 0.3,
   bilinear: false,
@@ -448,7 +448,7 @@ export const magnitudeDefaults: EffectConfigMap["magnitude"] = {
   background_brightness: 1,
   gradient: defaultGradient,
   gradient_roll: 0,
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
 };
 
 /** Default config for marching (base.2.1.5.json) */
@@ -602,7 +602,7 @@ export const plasma2dDefaults: EffectConfigMap["plasma2d"] = {
   rotate: 0,
   test: false,
   dump: false,
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   density_vertical: 0.1,
   twist: 0.07,
   radius: 0.2,
@@ -625,7 +625,7 @@ export const plasmawledDefaults: EffectConfigMap["plasmawled"] = {
   rotate: 0,
   test: false,
   dump: false,
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   speed: 128,
   stretch_horizontal: 128,
   stretch_vertical: 128,
@@ -728,7 +728,7 @@ export const scanDefaults: EffectConfigMap["scan"] = {
   scan_width: 30,
   speed: 50,
   color_scan: "#FF0000",
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   multiplier: 3,
   color_intensity: true,
   use_grad: false,
@@ -755,7 +755,7 @@ export const scanAndFlareDefaults: EffectConfigMap["scan_and_flare"] = {
   sparkles_time: 1,
   sparkles_threshold: 0.6,
   color_scan: "#FF0000",
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   multiplier: 3,
   color_intensity: true,
   use_grad: false,
@@ -780,7 +780,7 @@ export const scanMultiDefaults: EffectConfigMap["scan_multi"] = {
   color_low: "#FF0000",
   color_mid: "#00FF00",
   color_high: "#0000FF",
-  frequency_range: "Lows (beat+bass)",
+  frequency_range: FrequencyRange.LowsBeatBass,
   multiplier: 3,
   color_intensity: true,
   use_grad: false,

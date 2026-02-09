@@ -31,10 +31,10 @@ function resolveEntry(effects: PlaylistEntry): ResolvedPlaylistEntry {
  */
 export function createEffectSelector(playlist: Map<TimeString, PlaylistEntry>) {
   const playlistWithMilliseconds = new Map<number, ResolvedPlaylistEntry>(
-    [...playlist.entries()].map(([time, effects]) => {
-      const ms = durationToMilliseconds(time);
-      return [ms, resolveEntry(effects)];
-    }),
+    [...playlist.entries()].map(([time, effects]) => [
+      durationToMilliseconds(time),
+      resolveEntry(effects),
+    ]),
   );
 
   const playlistTimes = [...playlistWithMilliseconds.keys()];
@@ -42,6 +42,7 @@ export function createEffectSelector(playlist: Map<TimeString, PlaylistEntry>) {
   const isSorted =
     playlistTimes.length === sortedPlaylistTimes.length &&
     playlistTimes.every((t, i) => t === sortedPlaylistTimes[i]);
+
   if (!isSorted) {
     console.warn(
       "Effect selection: playlist times were not sorted by default; order has been normalized.",
@@ -56,16 +57,20 @@ export function createEffectSelector(playlist: Map<TimeString, PlaylistEntry>) {
     milliseconds: number,
   ): Map<DeviceKey, DeviceEffectAtTime> {
     const result = new Map<DeviceKey, DeviceEffectAtTime>();
+
     for (const key of ALL_DEVICE_KEYS) {
       const timesWithKey = sortedPlaylistTimes.filter(
         (t) => t <= milliseconds && playlistWithMilliseconds.get(t)?.[key],
       );
       const latestTime = timesWithKey.at(-1);
+
       if (latestTime !== undefined) {
         const entry = playlistWithMilliseconds.get(latestTime)!;
+
         result.set(key, { sourceTime: latestTime, effect: entry[key]! });
       }
     }
+
     return result;
   }
 

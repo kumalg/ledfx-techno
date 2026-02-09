@@ -4,19 +4,15 @@ import { effectDefaultsByType } from "./types/effectDefaults";
 const HOST = "http://192.168.0.175:8888";
 
 export const api = {
-  async setEffect(device: string, effect: Effect) {
-    const defaults =
-      effect.type in effectDefaultsByType
-        ? effectDefaultsByType[effect.type as keyof typeof effectDefaultsByType]
-        : undefined;
-    const config = defaults ? { ...defaults, ...effect.config } : effect.config;
+  async setEffect(device: string, { type, config }: Effect) {
+    const defaults = effectDefaultsByType[type];
 
     return await fetch(`${HOST}/api/virtuals/${device}/effects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ type: effect.type, config }),
+      body: JSON.stringify({ type, config: { ...defaults, ...config } }),
     });
   },
 };

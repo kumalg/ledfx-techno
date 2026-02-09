@@ -65,10 +65,11 @@ function App() {
     const milliseconds = lastPlayerTime.current.videoTime * 1000 + timeDiff;
 
     const effectsPerDevice = getEffectsPerDeviceAtTime(milliseconds);
-    const toApply: { key: DeviceKey; effect: DeviceEffect }[] = [];
-    for (const [key, { sourceTime, effect }] of effectsPerDevice) {
-      if (lastAppliedSourceTimePerDevice.current[key] !== sourceTime) {
-        toApply.push({ key, effect });
+    const toApply: { deviceKey: DeviceKey; effect: DeviceEffect }[] = [];
+
+    for (const [deviceKey, { sourceTime, effect }] of effectsPerDevice) {
+      if (lastAppliedSourceTimePerDevice.current[deviceKey] !== sourceTime) {
+        toApply.push({ deviceKey, effect });
       }
     }
 
@@ -84,9 +85,9 @@ function App() {
       const success = results.every((status) => status === "success");
 
       if (success) {
-        for (const { key } of toApply) {
-          const sourceTime = effectsPerDevice.get(key)!.sourceTime;
-          lastAppliedSourceTimePerDevice.current[key] = sourceTime;
+        for (const { deviceKey } of toApply) {
+          const { sourceTime } = effectsPerDevice.get(deviceKey)!;
+          lastAppliedSourceTimePerDevice.current[deviceKey] = sourceTime;
         }
         console.log(
           `Successfully set effect on ${effects.map(({ device }) => device).join(", ")}`,

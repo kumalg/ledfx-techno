@@ -1,7 +1,10 @@
-import { EffectConfigMap } from "./effectConfigs";
-import { BladePowerPlusEffect } from "./effects/blade_power_plus";
-import { GradientEffect } from "./effects/gradient";
-import { RealStrobeEffect } from "./effects/real_strobe";
+import {
+  BladePowerPlusEffectConfig,
+  EffectConfigMap,
+  GradientConfig,
+  RealStrobeEffectConfig,
+} from "./effectConfigs";
+import { FrequencyRange } from "./frequencyRange";
 
 export type Effect = {
   type: keyof EffectConfigMap;
@@ -19,11 +22,11 @@ const gradient1ScanSmallGradient = (color: string) =>
 
 function effectImpl<T extends keyof EffectConfigMap>(
   effectType: T,
-  config: Partial<EffectConfigMap[T]>
+  config: Partial<EffectConfigMap[T]>,
 ): Effect {
   return {
     type: effectType,
-    config
+    config,
   };
 }
 
@@ -39,7 +42,7 @@ export const effect = Object.assign(effectImpl, {
     color: string,
     speed: number,
     gradient_roll: number,
-    config: GradientEffect = {}
+    config: Partial<GradientConfig> = {},
   ): Effect =>
     effectImpl("gradient", {
       brightness: 1,
@@ -54,14 +57,14 @@ export const effect = Object.assign(effectImpl, {
       modulation_speed: 0.5,
       modulate: false,
       modulation_effect: "sine",
-      ...config
+      ...config,
     }),
 
   gradient1Scan: (
     color: string,
     speed: number,
     gradient_roll: number,
-    config: GradientEffect = {}
+    config: Partial<GradientConfig> = {},
   ): Effect =>
     effectImpl("gradient", {
       brightness: 1,
@@ -76,14 +79,14 @@ export const effect = Object.assign(effectImpl, {
       modulation_speed: 0.5,
       modulate: false,
       modulation_effect: "sine",
-      ...config
+      ...config,
     }),
 
   gradient1ScanSmall: (
     color: string,
     speed: number,
     gradient_roll: number,
-    config: GradientEffect = {}
+    config: Partial<GradientConfig> = {},
   ): Effect =>
     effectImpl("gradient", {
       brightness: 1,
@@ -98,10 +101,13 @@ export const effect = Object.assign(effectImpl, {
       modulation_speed: 0.5,
       modulate: false,
       modulation_effect: "sine",
-      ...config
+      ...config,
     }),
 
-  strobeBass: (color: string, config: RealStrobeEffect = {}): Effect =>
+  strobeBass: (
+    color: string,
+    config: Partial<RealStrobeEffectConfig> = {},
+  ): Effect =>
     effectImpl("real_strobe", {
       background_brightness: 1,
       background_color: "#000000",
@@ -117,31 +123,26 @@ export const effect = Object.assign(effectImpl, {
       strobe_decay_rate: 0.85,
       strobe_width: 0,
       color_shift_delay: 1,
-      ...config
+      ...config,
     }),
 
   bladeDefault: (
     color: string,
-    config: BladePowerPlusEffect = {}
+    config: Partial<BladePowerPlusEffectConfig> = {},
   ): Effect =>
     effectImpl("blade_power_plus", {
       background_brightness: 0.44,
       background_color: "#000000",
       blur: 2,
       brightness: 1,
-      color: color,
-      color_correction: true,
       decay: 0,
       flip: false,
-      frequency_range: "Mids",
+      frequency_range: FrequencyRange.Mids,
       gradient: color,
-      gradient_name: "Ocean",
-      solid_color: false,
-      gradient_repeat: 1,
       gradient_roll: 0,
       mirror: true,
       multiplier: 0.5,
       fix_hues: true,
-      ...config
-    })
+      ...config,
+    }),
 });

@@ -1,7 +1,7 @@
 // Made with LedFX 2.0.109
 
 import { effect } from "../ledfx/types/effect";
-import { FrequencyRange } from "../ledfx/types/frequencyRange";
+import { FrequencyRange } from "../ledfx/types/enums";
 import type { Playlist, PlaylistEntry, TimeString } from "./types";
 
 export const VIDEO_URL = "https://www.youtube.com/watch?v=shFiitpKUSo";

@@ -4,7 +4,7 @@ import {
   GradientConfig,
   RealStrobeEffectConfig,
 } from "./effectConfigs";
-import { FrequencyRange } from "./frequencyRange";
+import { FrequencyRange } from "./enums";
 
 export type Effect = {
   type: keyof EffectConfigMap;

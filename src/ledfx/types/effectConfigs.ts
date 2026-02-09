@@ -1,4 +1,4 @@
-import { FrequencyRange } from "./frequencyRange";
+import { FrequencyRange } from "./enums";
 
 /**
  * Base configuration properties shared by all effects

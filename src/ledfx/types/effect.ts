@@ -9,6 +9,7 @@ import { FrequencyRange } from "./enums";
 export type Effect = {
   type: keyof EffectConfigMap;
   config: Partial<EffectConfigMap[keyof EffectConfigMap]>;
+  name?: string;
 };
 
 const gradient2ScanGradient = (color: string) =>

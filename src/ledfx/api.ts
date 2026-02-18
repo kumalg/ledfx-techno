@@ -1,9 +1,17 @@
 import type { Effect } from "./types/effect";
 import { effectDefaultsByType } from "./types/effectDefaults";
 
-const HOST = "http://192.168.0.175:8888";
+let HOST = "http://192.168.0.175:8888";
 
 export const api = {
+  setHost(url: string) {
+    HOST = url;
+  },
+  
+  getHost() {
+    return HOST;
+  },
+  
   async setEffect(device: string, { type, config }: Effect) {
     const defaults = effectDefaultsByType[type];
 

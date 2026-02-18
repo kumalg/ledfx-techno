@@ -4,13 +4,16 @@ import "./App.css";
 import { useProjectStore } from "./timeline/store";
 import { ProjectsListPage } from "./pages/ProjectsListPage";
 import { TimelineEditorPage } from "./pages/TimelineEditorPage";
+import { api } from "./ledfx/api";
 
 function App() {
   const loadProjects = useProjectStore(state => state.loadProjects);
+  const settings = useProjectStore(state => state.settings);
   
   useEffect(() => {
     loadProjects();
-  }, [loadProjects]);
+    api.setHost(settings.ledfxUrl);
+  }, [loadProjects, settings.ledfxUrl]);
 
   return (
     <Routes>

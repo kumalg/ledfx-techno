@@ -1,10 +1,15 @@
 import { create } from 'zustand'
 import type { TimelineProject, TimelineClip, TimelineState } from './types'
 
+interface Settings {
+  ledfxUrl: string
+}
+
 interface ProjectStore {
   projects: TimelineProject[]
   currentProject: TimelineProject | null
   timelineState: TimelineState
+  settings: Settings
   
   // Project actions
   loadProjects: () => void
@@ -22,9 +27,14 @@ interface ProjectStore {
   setZoom: (zoom: number) => void
   setSelectedClip: (id: string | null) => void
   setDraggedEffect: (effect: any | null) => void
+  
+  // Settings actions
+  setLedfxUrl: (url: string) => void
+  loadSettings: () => void
 }
 
 const STORAGE_KEY = 'ledfx-timeline-projects'
+const SETTINGS_STORAGE_KEY = 'ledfx-timeline-settings'
 
 const saveToStorage = (projects: TimelineProject[]) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(projects))
@@ -36,6 +46,19 @@ const loadFromStorage = (): TimelineProject[] => {
     return data ? JSON.parse(data) : []
   } catch {
     return []
+  }
+}
+
+const saveSettingsToStorage = (settings: Settings) => {
+  localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings))
+}
+
+const loadSettingsFromStorage = (): Settings => {
+  try {
+    const data = localStorage.getItem(SETTINGS_STORAGE_KEY)
+    return data ? JSON.parse(data) : { ledfxUrl: 'http://192.168.0.175:8888' }
+  } catch {
+    return { ledfxUrl: 'http://192.168.0.175:8888' }
   }
 }
 
@@ -51,6 +74,7 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
     selectedClipId: null,
     draggedEffect: null,
   },
+  settings: loadSettingsFromStorage(),
   
   loadProjects: () => {
     const projects = loadFromStorage()
@@ -189,5 +213,16 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
     set(state => ({
       timelineState: { ...state.timelineState, draggedEffect: effect }
     }))
+  },
+  
+  setLedfxUrl: (url) => {
+    const settings = { ...get().settings, ledfxUrl: url }
+    set({ settings })
+    saveSettingsToStorage(settings)
+  },
+  
+  loadSettings: () => {
+    const settings = loadSettingsFromStorage()
+    set({ settings })
   },
 }))

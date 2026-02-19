@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { useProjectStore } from "../../timeline/store";
 
 interface PlayheadProps {
-  scrollContainer: React.RefObject<HTMLDivElement>;
+  scrollContainer: React.RefObject<HTMLDivElement | null>;
 }
 
 export function Playhead({ scrollContainer }: PlayheadProps) {

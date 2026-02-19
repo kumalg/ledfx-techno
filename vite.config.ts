@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Using native JSX transform without Babel to avoid browserslist/caniuse-lite dependency issues
+// Using Vite's native JSX transform (no Babel) to avoid dependency issues
 export default defineConfig({
-  plugins: [react({ babel: false })],
+  plugins: [react()],
 })

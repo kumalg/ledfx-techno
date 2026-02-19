@@ -16,7 +16,6 @@ export function VideoPlayer() {
   // Sync player state with timeline state
   useEffect(() => {
     if (playerRef.current) {
-      const player = playerRef.current.getInternalPlayer();
       const currentPlayerTime = playerRef.current.getCurrentTime();
       
       // Only seek if the difference is significant (more than 0.5 seconds)

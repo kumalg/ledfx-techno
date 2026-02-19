@@ -6,7 +6,7 @@ import { TimelineTrack } from "./TimelineTrack";
 import { Playhead } from "./Playhead";
 
 export function Timeline() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const zoom = useProjectStore((state) => state.timelineState.zoom);
   const setZoom = useProjectStore((state) => state.setZoom);
   

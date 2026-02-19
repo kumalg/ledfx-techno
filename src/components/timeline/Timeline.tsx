@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { ALL_DEVICE_KEYS } from "../../ledfx/devices";
 import { useProjectStore } from "../../timeline/store";
 
@@ -65,16 +65,17 @@ export function Timeline() {
   }, []);
 
   // Add event listeners when dragging
-  if (draggingClip) {
-    if (typeof window !== 'undefined') {
+  useEffect(() => {
+    if (draggingClip && typeof window !== 'undefined') {
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mouseup', handleMouseUp);
+      
       return () => {
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }
+  }, [draggingClip, handleMouseMove, handleMouseUp]);
 
   if (!currentProject) {
     return (

@@ -1,7 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Using Vite's native JSX transform (no Babel) to avoid dependency issues
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        parserOpts: {},
+        plugins: [],
+        babelrc: false,
+        configFile: false,
+      },
+    } as any),
+  ],
 })

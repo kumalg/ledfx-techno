@@ -39,12 +39,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.24(postcss@8.5.6)
-      browserslist:
-        specifier: ^4.24.4
-        version: 4.28.1
-      caniuse-lite:
-        specifier: ^1.0.30001690
-        version: 1.0.30001770
       eslint:
         specifier: ^9.21.0
         version: 9.39.2(jiti@1.21.7)

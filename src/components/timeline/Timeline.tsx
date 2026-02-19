@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { Timeline as XTimelineEditor } from "@xzdarcy/react-timeline-editor";
-import "@xzdarcy/react-timeline-editor/dist/style.css";
 import { ALL_DEVICE_KEYS } from "../../ledfx/devices";
 import { useProjectStore } from "../../timeline/store";
 
@@ -72,7 +71,19 @@ export function Timeline() {
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full" style={{ backgroundColor: "var(--card)" }}>
+      <style>{`
+        .timeline-editor {
+          background-color: var(--card);
+          color: var(--foreground);
+          --timeline-bg: var(--card);
+          --timeline-border: var(--border);
+          --timeline-text: var(--foreground);
+        }
+        .timeline-editor * {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+      `}</style>
       <XTimelineEditor
         scale={scale}
         editorData={editorData}

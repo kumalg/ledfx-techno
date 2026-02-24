@@ -8,8 +8,7 @@ import { api } from "./ledfx/api";
 import { type DeviceEffect, type DeviceKey } from "./ledfx/devices";
 import { createEffectSelector } from "./ledfx/effectSelection";
 
-const { getEffectsPerDeviceAtTime, playlistSize } =
-  createEffectSelector(PLAYLIST);
+const { getEffectsPerDeviceAtTime, playlistSize } = createEffectSelector(PLAYLIST);
 
 console.log(playlistSize, "effects in playlist");
 
@@ -19,13 +18,9 @@ function App() {
   const playerRef = useRef<ReactPlayer>(null);
 
   const videoPlayed = useRef(false);
-  const lastPlayerTime = useRef<
-    { videoTime: number; timestamp: number } | undefined
-  >(undefined);
+  const lastPlayerTime = useRef<{ videoTime: number; timestamp: number } | undefined>(undefined);
   /** Last applied playlist time per device; only that device is updated when its effect changes. */
-  const lastAppliedSourceTimePerDevice = useRef<
-    Partial<Record<DeviceKey, number>>
-  >({});
+  const lastAppliedSourceTimePerDevice = useRef<Partial<Record<DeviceKey, number>>>({});
   const applyingEffects = useRef(false);
 
   const pausedAtEnd = useRef(false);
@@ -89,13 +84,9 @@ function App() {
           const { sourceTime } = effectsPerDevice.get(deviceKey)!;
           lastAppliedSourceTimePerDevice.current[deviceKey] = sourceTime;
         }
-        console.log(
-          `Successfully set effect on ${effects.map(({ device }) => device).join(", ")}`,
-        );
+        console.log(`Successfully set effect on ${effects.map(({ device }) => device).join(", ")}`);
       } else {
-        console.error(
-          `Failed to set effect on ${effects.map(({ device }) => device).join(", ")}`,
-        );
+        console.error(`Failed to set effect on ${effects.map(({ device }) => device).join(", ")}`);
       }
 
       applyingEffects.current = false;

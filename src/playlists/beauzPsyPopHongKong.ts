@@ -1,4 +1,3 @@
-
 import { effect } from "../ledfx/types/effect";
 import { FrequencyRange } from "../ledfx/types/enums";
 import type { Playlist, PlaylistEntry, TimeString } from "./types";
@@ -90,7 +89,7 @@ const Playlist: Playlist = {
       scroll_per_sec: 2,
       decay_per_sec: 0,
       threshold: 1,
-    })
+    }),
   },
   "00:31.000": {
     rails: effect("scroll_plus", {
@@ -103,7 +102,7 @@ const Playlist: Playlist = {
       decay_per_sec: 0,
       threshold: 1,
       mirror: false,
-    })
+    }),
   },
   "00:34.000": {
     rails: effect("random_flash", {
@@ -170,7 +169,7 @@ const Playlist: Playlist = {
     }),
   },
   "01:11.500": {
-    rails: effect.bladeDefault("blue", { frequency_range: FrequencyRange.Mids , flip: true}),
+    rails: effect.bladeDefault("blue", { frequency_range: FrequencyRange.Mids, flip: true }),
     ceiling: effect.strobeBass("white"),
   },
   "01:14.500": {
@@ -186,7 +185,7 @@ const Playlist: Playlist = {
     ceiling: effect.off(),
   },
   "01:21": {
-    rails: effect.bladeDefault("lime", { frequency_range: FrequencyRange.Mids , }),
+    rails: effect.bladeDefault("lime", { frequency_range: FrequencyRange.Mids }),
     ceiling: effect.strobeBass("white"),
   },
   "01:24.000": {
@@ -208,7 +207,7 @@ const Playlist: Playlist = {
     }),
   },
   "01:27": {
-    rails: effect.bladeDefault("green", { frequency_range: FrequencyRange.Mids , flip: true}),
+    rails: effect.bladeDefault("green", { frequency_range: FrequencyRange.Mids, flip: true }),
   },
   "01:36": {
     ceiling: effect("power", {
@@ -226,7 +225,7 @@ const Playlist: Playlist = {
       decay_per_sec: 0,
       threshold: 1,
       flip: true,
-    })
+    }),
   },
   "01:45.000": {
     rails: effect("random_flash", {
@@ -240,15 +239,16 @@ const Playlist: Playlist = {
   "01:47": {
     rails: effect("singleColor", {
       color: "green",
-      brightness: 0.5})
-    },
-    "01:48.7": {
+      brightness: 0.5,
+    }),
+  },
+  "01:48.7": {
     rails: effect.bladeDefault("green", { frequency_range: FrequencyRange.Mids }),
-      ceiling: effect.strobeBass("white", {
-        bass_strobe_decay_rate: 0.4
-      }),
-    },
-    "02:01" : {
+    ceiling: effect.strobeBass("white", {
+      bass_strobe_decay_rate: 0.4,
+    }),
+  },
+  "02:01": {
     rails: effect("scroll", {
       background_color: "black",
       blur: 0,
@@ -259,29 +259,28 @@ const Playlist: Playlist = {
       speed: 10,
       threshold: 1,
     }),
-      ceiling: effect("power", {
-        gradient: "red",
-        background_color: "black",
-        sparks_color: "white",
-      }),
-    },
-    "02:10": {
-      rails: effect("random_flash", {
-        blur: 0,
-        hit_color: "red",
-        hit_duration: 0.1,
-        hit_relative_size: 5,
-        hit_probability_per_sec: 1,
-      }),
-    },
-    "02:11.500": {
-      rails: effect("singleColor" , {
-        color: "red",
-        brightness: 0.5,
-      }),
-    }
-    ,"02:13.000": {
-      
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "white",
+    }),
+  },
+  "02:10": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 5,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "02:11.500": {
+    rails: effect("singleColor", {
+      color: "red",
+      brightness: 0.5,
+    }),
+  },
+  "02:13.000": {
     rails: effect("rain", {
       mids_color: "red",
       lows_color: "black",
@@ -291,27 +290,25 @@ const Playlist: Playlist = {
       lows_sensitivity: 0.03,
       high_sensitivity: 0.03,
     }),
-    },
-    "02:25": {
-      
-      ceiling: effect("power", {
-        gradient: "red",
-        background_color: "black",
-        sparks_color: "white",
-        brightness: 0.25
-      }),
+  },
+  "02:25": {
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "white",
+      brightness: 0.25,
+    }),
     rails: effect("scan", {
       color_scan: "red",
       scan_width: 20,
       bounce: true,
-      speed: 100
+      speed: 100,
     }),
-    },
-    "02:37.8": {
-      rails2: effect.off(),
-    },
-    "02:38.5": {
-      
+  },
+  "02:37.8": {
+    rails2: effect.off(),
+  },
+  "02:38.5": {
     rails2: effect("scan_multi", {
       color_high: "red",
       color_low: "black",
@@ -322,8 +319,8 @@ const Playlist: Playlist = {
       frequency_range: FrequencyRange.Mids,
       blur: 1,
     }),
-    }
-}
+  },
+};
 
 export const PLAYLIST = new Map<TimeString, PlaylistEntry>(
   Object.entries(Playlist) as [TimeString, PlaylistEntry][],

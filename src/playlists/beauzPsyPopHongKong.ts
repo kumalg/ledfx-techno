@@ -320,6 +320,30 @@ const Playlist: Playlist = {
       blur: 1,
     }),
   },
+  "02:49.5": {
+    rails2: effect.off(),
+  },
+  "02:49.9": {
+    rails: effect.off(),
+  },
+  "02:50": {
+    ceiling: effect.off(),
+    rails: effect("rain", {
+      mids_color: "black",
+      lows_color: "red",
+      high_color: "black",
+      raindrop_animation: "Laser",
+      mids_sensitivity: 0.03,
+      lows_sensitivity: 0.03,
+      high_sensitivity: 0.03,
+    }),
+  },
+  "02:59": {
+    rails: effect.bladeDefault("red"),
+  },
+  "03:02.500": {
+    rails: effect.gradient2Scan("red", 5, 1),
+  },
 };
 
 export const PLAYLIST = new Map<TimeString, PlaylistEntry>(

@@ -2,7 +2,7 @@ import { useCallback, useRef } from "react";
 import "./App.css";
 import ReactPlayer from "react-player";
 import { OnProgressProps } from "react-player/base";
-import { PLAYLIST, VIDEO_URL } from "./playlists/restrictedGroupChatNew";
+import { PLAYLIST, VIDEO_URL } from "./playlists/beauzPsyPopHongKong";
 import { durationToMilliseconds } from "./helpers";
 import { api } from "./ledfx/api";
 import { type DeviceEffect, type DeviceKey } from "./ledfx/devices";

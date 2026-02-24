@@ -2,7 +2,8 @@ import { Effect } from "./types/effect";
 
 export const rails = (effect: Effect) => {
   return {
-    device: "bedroom",
+    device: "rails-segments",
+    // device: "bedroom",
     // device: "grups",
     data: effect,
   };
@@ -10,7 +11,7 @@ export const rails = (effect: Effect) => {
 
 export const rails2 = (effect: Effect) => {
   return {
-    device: "bedroom",
+    device: "rails",
     // device: "gledopto",
     data: effect,
   };
@@ -18,8 +19,8 @@ export const rails2 = (effect: Effect) => {
 
 export const ceiling = (effect: Effect) => {
   return {
-    device: "office",
-    // device: "wled-7eaef4",
+    // device: "office",
+    device: "wled-7eaef4",
     // device: "sufit-test",
     data: effect,
   };

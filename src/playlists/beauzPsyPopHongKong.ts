@@ -1067,9 +1067,9 @@ const Playlist: Playlist = {
   },
   "10:45": {
     rails2: effect("scan_multi", {
-      color_high: "#3e00ff",
+      color_high: "blue",
       color_low: "black",
-      color_mid: "#ff2800",
+      color_mid: "green",
       scan_width: 10,
       speed: 25,
       count: 1,
@@ -1928,6 +1928,397 @@ const Playlist: Playlist = {
       blur: 0,
       scroll_per_sec: 2,
     }),
+  },
+  "20:19.500": {
+    rails: effect("scan", {
+      color_scan: "blue",
+      scan_width: 2,
+      speed: 100,
+      count: 2,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+    }),
+  },
+  "20:32": {
+    ceiling: effect("power", {
+      gradient: "white",
+      background_color: "black",
+      sparks_color: "blue",
+      brightness: 0.15,
+    }),
+    rails: effect("scroll_plus", {
+      color_lows: "black",
+      color_mids: "blue",
+      color_high: "black",
+      brightness: 1,
+      blur: 0,
+      flip: true,
+      scroll_per_sec: 2,
+    }),
+  },
+  "20:51": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "blue",
+      hit_duration: 0.1,
+      hit_relative_size: 3,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "20:55.800": {
+    ceiling: effect("singleColor", {
+      color: "#ff4d00",
+      brightness: 0.1,
+    }),
+    rails: effect.off(),
+  },
+  "20:57.500": {
+    ceiling: effect.off(),
+    rails: effect.gradient1ScanSmall("#ff4d00", 2, 1),
+  },
+  "21:03.500": {
+    ceiling: effect("power", {
+      gradient: "#ff4d00",
+      background_color: "black",
+      sparks_color: "#ff4d00",
+      brightness: 0.25,
+    }),
+  },
+  "21:10": {
+    rails: effect.gradient2Scan("#ff4d00", 3, 5, {
+      mirror: true,
+      brightness: 0.5,
+    }),
+  },
+  "21:16": {
+    rails: effect.gradient2Scan("#ff4d00", 5, 5, {
+      mirror: true,
+      brightness: 0.5,
+    }),
+  },
+  "21:19": {
+    rails: effect("random_flash", {
+      blur: 5,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "21:20.500": {
+    rails: effect("melt", {
+      gradient: "#ff4d00",
+      reactivity: 1,
+      speed: 1,
+    }),
+  },
+  "21:23.500": {
+    rails: effect("random_flash", {
+      blur: 4,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "21:25": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 2,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "21:28.500": {
+    ceiling: effect.strobeBass("white"),
+    rails: effect.bladeDefault("#ff4d00", {
+      flip: true,
+    }),
+  },
+  "21:39": {
+    rails: effect("random_flash", {
+      blur: 4,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "21:41": {
+    rails: effect("scan", {
+      color_scan: "#ff4d00",
+      scan_width: 5,
+      speed: 100,
+      count: 2,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+    }),
+  },
+  "21:46": {
+    rails: effect("random_flash", {
+      blur: 4,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "21:47": {
+    rails: effect("scan", {
+      color_scan: "#ff4d00",
+      scan_width: 5,
+      speed: 100,
+      count: 2,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+    }),
+  },
+  "21:51.500": {
+    rails: effect("random_flash", {
+      blur: 4,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "21:53": {
+    rails: effect("scroll_plus", {
+      color_lows: "black",
+      color_mids: "#ff4d00",
+      color_high: "black",
+      brightness: 0.5,
+      blur: 0,
+      scroll_per_sec: 2,
+    }),
+  },
+  "21:59": {
+    rails: effect.bladeDefault("#ff4d00", {
+      brightness: 0.5,
+    }),
+  },
+  "22:04": {
+    rails: effect.bladeDefault("#ff4d00", {
+      brightness: 0.5,
+      flip: true,
+    }),
+  },
+  "22:05.500": {
+    rails: effect("random_flash", {
+      blur: 4,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "22:11.500": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "#ff4d00",
+      hit_duration: 0.1,
+      hit_relative_size: 3,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "22:16.500": {
+    rails: effect("singleColor", {
+      color: "#ff4d00",
+      brightness: 0.5,
+    }),
+  },
+  "22:18": {
+    ceiling: effect("singleColor", {
+      color: "#3e00ff",
+      brightness: 0.15,
+    }),
+    rails: effect.gradient1ScanSmall("green", 1, 1),
+  },
+  "22:24": {
+    rails: effect("rain", {
+      mids_color: "black",
+      lows_color: "green",
+      high_color: "black",
+      raindrop_animation: "Blob",
+      mids_sensitivity: 0.03,
+      lows_sensitivity: 0.03,
+      high_sensitivity: 0.03,
+    }),
+  },
+  "22:37": {
+    ceiling: effect("power", {
+      gradient: "#3e00ff",
+      background_color: "black",
+    }),
+    rails: effect("rain", {
+      mids_color: "black",
+      lows_color: "green",
+      high_color: "black",
+      raindrop_animation: "Laser",
+      mids_sensitivity: 0.03,
+      lows_sensitivity: 0.13,
+      high_sensitivity: 0.03,
+    }),
+  },
+  "22:49": {
+    rails: effect.gradient1ScanSmall("green", 2, 2, {
+      flip: true,
+    }),
+  },
+  "22:55": {
+    rails: effect.gradient1ScanSmall("green", 4, 4, {
+      flip: true,
+    }),
+  },
+  "22:58": {
+    rails: effect.gradient1ScanSmall("green", 5, 5, {
+      flip: true,
+    }),
+  },
+  "22:59.500": {
+    rails: effect.bladeDefault("green", {
+      brightness: 0.5,
+    }),
+  },
+  "23:01.500": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "green",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "23:02.500": {
+    rails: effect.bladeDefault("green", {
+      flip: true,
+    }),
+  },
+  "23:09": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "green",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "23:21.600": {
+    ceiling: effect("power", {
+      gradient: "green",
+      background_color: "black",
+      sparks_color: "green",
+      brightness: 0.25,
+    }),
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "#3e00ff",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "23:32.500": {
+    rails: effect.bladeDefault("green", {
+      flip: true,
+    }),
+  },
+  "23:34": {
+    rails: effect("scan", {
+      color_scan: "#3e00ff",
+      scan_width: 5,
+      speed: 100,
+      count: 2,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+      bounce: false,
+    }),
+  },
+  "23:46.500": {
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+    rails: effect("scan", {
+      color_scan: "#ffffff",
+      scan_width: 10,
+      speed: 100,
+      count: 2,
+      frequency_range: FrequencyRange.Mids,
+      blur: 3,
+      bounce: false,
+      flip: true,
+    }),
+  },
+  "23:59": {
+    ceiling: effect("singleColor", {
+      color: "red",
+      brightness: 0.15,
+    }),
+    rails: effect.off(),
+  },
+  "24:05": {
+    rails: effect("rain", {
+      mids_color: "black",
+      lows_color: "white",
+      high_color: "black",
+      raindrop_animation: "Blob",
+      mids_sensitivity: 0.03,
+      lows_sensitivity: 0.1,
+      high_sensitivity: 0.03,
+      brightness: 0.5,
+    }),
+  },
+  "24:21": {
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+    rails2: effect("scan_multi", {
+      color_high: "red",
+      color_low: "red",
+      color_mid: "grey",
+      scan_width: 10,
+      speed: 25,
+      count: 1,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+    }),
+  },
+  "24:46.500": {
+    rails: effect("melt", {
+      gradient: "red",
+      reactivity: 1,
+      speed: 1,
+      brightness: 0.05,
+    }),
+  },
+  "24:59": {
+    rails: effect("block_reflections", {
+      gradient: "linear-gradient(90deg, red 45.00%,#000000 57.00%)",
+      speed: 1,
+    }),
+  },
+  "25:08.500": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 4,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "25:10": {
+    ceiling: effect("singleColor", {
+      color: "red",
+      brightness: 0.15,
+    }),
+    rails: effect.off(),
   },
 };
 

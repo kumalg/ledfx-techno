@@ -2974,6 +2974,191 @@ const Playlist: Playlist = {
     }),
     rails: effect.off(),
   },
+  "34:00": {
+    ceiling: effect.off(),
+    rails: effect("melt", {
+      gradient: "#00ff66",
+      reactivity: 1,
+      speed: 1,
+      brightness: 0.15,
+    }),
+  },
+  "34:12.500": {
+    rails: effect("random_flash", {
+      blur: 5,
+      hit_color: "#ff4400",
+      hit_duration: 0.1,
+      hit_relative_size: 25,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "34:19": {
+    rails: effect("power", {
+      gradient: "black",
+      background_color: "black",
+      sparks_color: "#ff4400",
+      brightness: 0.25,
+    }),
+  },
+  "34:22": {
+    rails: effect("random_flash", {
+      blur: 1,
+      hit_color: "#ff4400",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "34:25": {
+    ceiling: effect("power", {
+      gradient: "#00ff66",
+      background_color: "black",
+      sparks_color: "#00ff66",
+      brightness: 0.25,
+    }),
+    rails: effect.gradient1ScanSmall("#ff4400", 1, 2),
+  },
+  "34:28": {
+    rails: effect.bladeDefault("#ff4400", {
+      flip: true,
+    }),
+  },
+  "34:31": {
+    rails: effect("random_flash", {
+      blur: 1,
+      hit_color: "#ff4400",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "34:33": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "#ff4400",
+      hit_duration: 0.1,
+      hit_relative_size: 3,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "34:34.500": {
+    ceiling: effect("power", {
+      gradient: "#ff4400",
+      background_color: "black",
+      sparks_color: "#00ff66",
+      brightness: 0.25,
+    }),
+    rails: effect.gradient1ScanSmall("#00ff66", 5, 5),
+  },
+  "34:45.500": {
+    rails: effect.bladeDefault("#00ff66"),
+  },
+  "34:47": {
+    rails: effect("scan", {
+      color_scan: "white",
+      scan_width: 10,
+    }),
+  },
+  "34:59.200": {
+    ceiling: effect("power", {
+      gradient: "#0011ff",
+      background_color: "black",
+      sparks_color: "#00ff66",
+      brightness: 0.25,
+    }),
+    rails: effect("power", {
+      gradient: "black",
+      background_color: "black",
+      sparks_color: "white",
+      brightness: 0.25,
+    }),
+  },
+  "35:09": {
+    ceiling: effect.off(),
+  },
+  "35:12": {
+    rails: effect("block_reflections", {
+      gradient: "linear-gradient(90deg, #0011ff 45.00%,#000000 57.00%)",
+      speed: 1,
+    }),
+  },
+  "35:24.500": {
+    rails: effect("scan", {
+      color_scan: "#0011ff",
+      scan_width: 10,
+      speed: 100,
+      count: 2,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+      bounce: false,
+    }),
+  },
+  "35:31": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "#0011ff",
+      hit_duration: 0.1,
+      hit_relative_size: 3,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "35:37": {
+    rails: effect("melt_and_sparkle", {
+      background_color: "black",
+      gradient: "#0011ff",
+      speed: 0.39,
+      lava_width: 0.67,
+    }),
+  },
+  "35:43": {
+    ceiling: effect("power", {
+      gradient: "#0011ff",
+      background_color: "black",
+      sparks_color: "#00ff66",
+      brightness: 0.25,
+    }),
+    rails: effect("melt_and_sparkle", {
+      background_color: "black",
+      gradient: "#0011ff",
+      speed: 1,
+      lava_width: 0.67,
+    }),
+  },
+  "35:54.500": {
+    rails: effect.bladeDefault("#0011ff"),
+  },
+  "35:55.500": {
+    rails: effect("scan", {
+      color_scan: "#0011ff",
+      scan_width: 10,
+      speed: 100,
+      count: 3,
+      frequency_range: FrequencyRange.Mids,
+      blur: 0,
+      bounce: true,
+    }),
+  },
+  "36:20": {
+    rails: effect("scroll_plus", {
+      color_lows: "black",
+      color_mids: "#0011ff",
+      color_high: "black",
+      brightness: 0.5,
+      blur: 0,
+      flip: true,
+    }),
+  },
+  "36:26.500": {
+    rails: effect.bladeDefault("#0011ff", {
+      flip: true,
+    }),
+  },
+  "36:31": {
+    ceiling: effect.off(),
+    rails: effect("singleColor", {
+      color: "#0011ff",
+    }),
+  },
 };
 
 export const PLAYLIST = new Map<TimeString, PlaylistEntry>(

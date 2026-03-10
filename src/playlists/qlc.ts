@@ -5,7 +5,7 @@ const qlcFunction = {
   off: (id: string) => `QLC+API|setFunctionStatus|${id}|0`,
 };
 
-const qlcFunctionIds: Record<string, `${number}`> = {
+const qlcFunctionIds = {
   stop: "37",
 
   dots__red_blue: "10",
@@ -40,7 +40,7 @@ const qlcFunctionIds: Record<string, `${number}`> = {
   line__purple_violet: "24",
   line__violet: "22",
   line__white: "21",
-};
+} satisfies Record<string, `${number}`>;
 
 const qlcPlaylist: QlcPlaylist = {
   "00:00": [qlcFunction.on(qlcFunctionIds.stop)],
@@ -93,11 +93,58 @@ const qlcPlaylist: QlcPlaylist = {
 
   "04:30": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
   "04:55": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
-  // "00:00.000": ["14|255"],
-  // "00:01.000": ["27|255"],
-  // "00:03.500": ["27|0", "10|255"],
-  // "00:06.500": ["10|0", "15|255"],
-  // "00:09.500": ["15|0"],
+
+  "05:05.500": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
+  "05:18.200": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+
+  "05:51": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
+  "06:01.500": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+
+  "06:03": [qlcFunction.on(qlcFunctionIds.dots_line__white_blue)],
+  "06:14": [qlcFunction.off(qlcFunctionIds.dots_line__white_blue)],
+
+  "06:58.500": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "07:00": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "07:11": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "07:13": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "07:24": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "07:25.500": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "07:36": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "07:42": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "08:10": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "08:13": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "09:55": [qlcFunction.on(qlcFunctionIds.moving_lines__white_lime)],
+  "10:07.500": [qlcFunction.off(qlcFunctionIds.moving_lines__white_lime)],
+
+  "10:23": [qlcFunction.on(qlcFunctionIds.dots__white_lime)],
+  "10:26": [qlcFunction.off(qlcFunctionIds.dots__white_lime)],
+
+  "10:32.500": [qlcFunction.on(qlcFunctionIds.dots__white_lime)],
+  "10:43": [qlcFunction.off(qlcFunctionIds.dots__white_lime)],
+
+  "10:57.500": [qlcFunction.on(qlcFunctionIds.moving_lines__red_violet)],
+  "11:08": [qlcFunction.off(qlcFunctionIds.moving_lines__red_violet)],
+
+  "11:23.500": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "11:25": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "11:56.500": [qlcFunction.on(qlcFunctionIds.moving_lines__red_violet)],
+  "12:06": [qlcFunction.off(qlcFunctionIds.moving_lines__red_violet)],
+
+  "12:31": [qlcFunction.on(qlcFunctionIds.dots__red_violet)],
+  "12:34": [qlcFunction.off(qlcFunctionIds.dots__red_violet)],
+
+  "12:53": [qlcFunction.on(qlcFunctionIds.dots_line__white_blue)],
+  "13:02": [
+    qlcFunction.off(qlcFunctionIds.dots_line__white_blue),
+    qlcFunction.on(qlcFunctionIds.dots__white_blue),
+  ],
+  "13:04": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
 };
 
 export const QLC_PLAYLIST = new Map<TimeString, QlcPlaylistEntry>(

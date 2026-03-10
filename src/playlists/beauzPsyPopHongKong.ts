@@ -5302,6 +5302,420 @@ const Playlist: Playlist = {
     }),
     rails: effect.off(),
   },
+  "01:08:53": {
+    ceiling: effect.off(),
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "white",
+      hit_duration: 0.2,
+      hit_relative_size: 2,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:08:56": {
+    ceiling: effect.off(),
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "white",
+      hit_duration: 0.1,
+      hit_relative_size: 2,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:08:59": {
+    rails: effect("melt_and_sparkle", {
+      background_color: "black",
+      gradient: "green",
+    }),
+  },
+  "01:09:05": {
+    rails: effect("scan", {
+      color_scan: "green",
+      blur: 0,
+      scan_width: 10,
+      speed: 50,
+      count: 3,
+      bounce: false,
+      mirror: false,
+      frequency_range: FrequencyRange.Mids,
+    }),
+  },
+  "01:09:08": {
+    rails: effect("random_flash", {
+      blur: 1,
+      hit_color: "green",
+      hit_duration: 0.1,
+      hit_relative_size: 2,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:09:10": {
+    rails: effect("melt_and_sparkle", {
+      background_color: "black",
+      gradient: "green",
+    }),
+  },
+  "01:09:11": {
+    ceiling: effect("real_strobe", {
+      strobe_color: "white",
+      gradient: "black",
+    }),
+    rails: effect.bladeDefault("green", {
+      flip: true,
+    }),
+  },
+  "01:09:15": {
+    ceiling: effect.off(),
+    rails: effect("rain", {
+      mids_color: "green",
+      lows_color: "black",
+      high_color: "black",
+      raindrop_animation: "Ripple",
+      mids_sensitivity: 0.2,
+      lows_sensitivity: 0.1,
+      high_sensitivity: 0.1,
+    }),
+  },
+  "01:09:17.500": {
+    ceiling: effect("real_strobe", {
+      strobe_color: "white",
+      gradient: "black",
+    }),
+    rails: effect.bladeDefault("green", {
+      frequency_range: FrequencyRange.Bass,
+    }),
+  },
+  "01:09:36": {
+    ceiling: effect("power", {
+      gradient: "white",
+      background_color: "black",
+      sparks_color: "green",
+      brightness: 0.25,
+    }),
+    rails: effect("scan", {
+      color_scan: "green",
+      blur: 0,
+      scan_width: 10,
+      speed: 50,
+      count: 3,
+      bounce: true,
+      mirror: false,
+      frequency_range: FrequencyRange.Mids,
+    }),
+  },
+  "01:09:45.500": {
+    ceiling: effect.off(),
+    rails: effect("random_flash", {
+      blur: 5,
+      hit_color: "green",
+      hit_duration: 0.1,
+      hit_relative_size: 15,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:09:48.500": {
+    ceiling: effect("power", {
+      gradient: "white",
+      background_color: "black",
+      sparks_color: "green",
+      brightness: 0.25,
+    }),
+    rails: effect("scroll_plus", {
+      color_lows: "black",
+      color_mids: "green",
+      color_high: "black",
+      // brightness: 0.75,
+      blur: 0,
+      scroll_per_sec: 2,
+      decay_per_sec: 0.5,
+      threshold: 0.5,
+    }),
+  },
+  "01:10:01": {
+    ceiling: effect.off(),
+    rails: effect("block_reflections", {
+      gradient: "linear-gradient(90deg, green 45.00%,#000000 57.00%)",
+      speed: 1,
+    }),
+  },
+  "01:10:10": {
+    rails: effect("random_flash", {
+      blur: 5,
+      hit_color: "green",
+      hit_duration: 0.1,
+      hit_relative_size: 15,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:10:13.200": {
+    rails: effect("melt", {
+      gradient: "green",
+      reactivity: 1,
+      speed: 1,
+      brightness: 0.25,
+    }),
+  },
+  "01:10:17": {
+    rails: effect("melt", {
+      gradient: "red",
+      reactivity: 1,
+      speed: 1,
+      brightness: 0.25,
+    }),
+  },
+  "01:10:21.500": {
+    rails: effect("random_flash", {
+      blur: 5,
+      hit_color: "red",
+      hit_duration: 0.15,
+      hit_relative_size: 15,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:10:28": {
+    ceiling: effect("power", {
+      gradient: "white",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+  },
+  "01:10:38.500": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "white",
+      hit_duration: 0.15,
+      hit_relative_size: 2,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:10:40.500": {
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+    rails: effect("scan", {
+      color_scan: "white",
+      blur: 0,
+      scan_width: 10,
+      speed: 100,
+      count: 3,
+      bounce: false,
+      mirror: false,
+      frequency_range: FrequencyRange.Mids,
+    }),
+  },
+  "01:10:50": {
+    ceiling: effect.off(),
+    rails: effect("random_flash", {
+      blur: 3,
+      hit_color: "red",
+      hit_duration: 0.15,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:10:51": {
+    ceiling: effect.off(),
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 2,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:10:52.800": {
+    ceiling: effect("real_strobe", {
+      strobe_color: "white",
+      gradient: "black",
+    }),
+    rails: effect.bladeDefault("red", {
+      flip: true,
+    }),
+  },
+  "01:10:59": {
+    rails: effect("random_flash", {
+      blur: 5,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:11:10": {
+    ceiling: effect.off(),
+    rails: effect.bladeDefault("red"),
+  },
+  "01:11:11.500": {
+    ceiling: effect("power", {
+      gradient: "white",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+    rails: effect("scan", {
+      color_scan: "red",
+      blur: 0,
+      scan_width: 10,
+      speed: 50,
+      count: 3,
+      bounce: false,
+      mirror: false,
+      frequency_range: FrequencyRange.Mids,
+    }),
+  },
+  "01:11:24": {
+    ceiling: effect.off(),
+    rails: effect("melt_and_sparkle", {
+      background_color: "black",
+      gradient: "red",
+    }),
+  },
+  "01:11:30": {
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+  },
+  "01:11:43": {
+    ceiling: effect.off(),
+    rails: effect("random_flash", {
+      blur: 3,
+      hit_color: "red",
+      hit_duration: 0.15,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:11:47": {
+    rails: effect("random_flash", {
+      blur: 3,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:11:49": {
+    ceiling: effect("power", {
+      gradient: "white",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 3,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:11:55": {
+    rails: effect("random_flash", {
+      blur: 3,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:11:58": {
+    rails: effect("random_flash", {
+      blur: 3,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 25,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:12:01.500": {
+    rails: effect.gradient2Scan("red", 2, 3),
+  },
+  "01:12:04.500": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 3,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:12:08": {
+    ceiling: effect("real_strobe", {
+      strobe_color: "white",
+      gradient: "black",
+    }),
+    rails: effect.bladeDefault("red", {
+      flip: true,
+    }),
+  },
+  "01:12:20": {
+    ceiling: effect("power", {
+      gradient: "red",
+      background_color: "black",
+      sparks_color: "red",
+      brightness: 0.25,
+    }),
+    rails: effect("scan", {
+      color_scan: "red",
+      blur: 0,
+      scan_width: 10,
+      speed: 50,
+      count: 3,
+      bounce: false,
+      mirror: false,
+      frequency_range: FrequencyRange.Mids,
+    }),
+  },
+  "01:12:29.500": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.15,
+      hit_relative_size: 10,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:12:31": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.1,
+      hit_relative_size: 25,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:12:33": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.2,
+      hit_relative_size: 25,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:12:35": {
+    rails: effect("random_flash", {
+      blur: 0,
+      hit_color: "red",
+      hit_duration: 0.3,
+      hit_relative_size: 25,
+      hit_probability_per_sec: 1,
+    }),
+  },
+  "01:12:37": {
+    ceiling: effect("singleColor", {
+      color: "red",
+      brightness: 0.25
+    }),
+    rails: effect.off(),
+  },
 };
 
 export const PLAYLIST = new Map<TimeString, PlaylistEntry>(

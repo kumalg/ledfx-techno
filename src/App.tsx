@@ -1,17 +1,23 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import "./App.css";
 import ReactPlayer from "react-player";
 import { OnProgressProps } from "react-player/base";
 import { PLAYLIST, VIDEO_URL } from "./playlists/beauzPsyPopHongKong";
+import { QLC_PLAYLIST } from "./playlists/qlc";
 // import { PLAYLIST, VIDEO_URL } from "./playlists/restrictedGroupChat";
 import { durationToMilliseconds } from "./helpers";
 import { api } from "./ledfx/api";
 import { type DeviceEffect, type DeviceKey } from "./ledfx/devices";
 import { createEffectSelector } from "./ledfx/effectSelection";
+import { createQlcPlaylistSelector } from "./qlc/playlistSelection";
+import { QlcWsClient } from "./qlc/wsClient";
 
 const { getEffectsPerDeviceAtTime, playlistSize } = createEffectSelector(PLAYLIST);
+const { getMessagesAtTime: getQlcMessagesAtTime, playlistSize: qlcPlaylistSize } =
+  createQlcPlaylistSelector(QLC_PLAYLIST);
 
 console.log(playlistSize, "effects in playlist");
+console.log(qlcPlaylistSize, "QLC+ events in playlist");
 
 const pauseAtEndTime = durationToMilliseconds("01:17:28");
 
@@ -23,8 +29,18 @@ function App() {
   /** Last applied playlist time per device; only that device is updated when its effect changes. */
   const lastAppliedSourceTimePerDevice = useRef<Partial<Record<DeviceKey, number>>>({});
   const applyingEffects = useRef(false);
+  const qlcClient = useRef(new QlcWsClient());
+  const lastAppliedQlcSourceTime = useRef<number | undefined>(undefined);
 
   const pausedAtEnd = useRef(false);
+
+  useEffect(() => {
+    qlcClient.current.connect();
+
+    return () => {
+      qlcClient.current.disconnect();
+    };
+  }, []);
 
   const handleProgress = useCallback((props: OnProgressProps) => {
     lastPlayerTime.current = {
@@ -91,6 +107,14 @@ function App() {
       }
 
       applyingEffects.current = false;
+    }
+
+    const qlcMessagesAtTime = getQlcMessagesAtTime(milliseconds);
+
+    if (qlcMessagesAtTime && lastAppliedQlcSourceTime.current !== qlcMessagesAtTime.sourceTime) {
+      qlcClient.current.sendMessages(qlcMessagesAtTime.messages);
+      lastAppliedQlcSourceTime.current = qlcMessagesAtTime.sourceTime;
+      console.log(`Sent QLC+ messages: ${qlcMessagesAtTime.messages.join(", ")}`);
     }
 
     if (!pausedAtEnd.current && milliseconds >= pauseAtEndTime) {

@@ -22,6 +22,7 @@ export const ceiling = (effect: Effect) => {
     // device: "office",
     device: "wled-7eaef4",
     // device: "sufit-test",
+    // device: "bedroom",
     data: effect,
   };
 };

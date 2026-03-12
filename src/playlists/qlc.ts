@@ -417,6 +417,79 @@ const qlcPlaylist: QlcPlaylist = {
                       qlcFunction.on(qlcFunctionIds.dots__white_blue)
                      ],
                      "44:05.500": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+
+                     "47:59": [qlcFunction.on(qlcFunctionIds.dots__red_blue)],
+                      "48:00.500": [qlcFunction.off(qlcFunctionIds.dots__red_blue)],
+
+                      
+                     "48:02.500": [qlcFunction.on(qlcFunctionIds.dots__red_blue)],
+                      "48:03.500": [qlcFunction.off(qlcFunctionIds.dots__red_blue)],
+                      
+                     "48:05.500": [qlcFunction.on(qlcFunctionIds.dots__red_blue)],
+                      "48:06.500": [qlcFunction.off(qlcFunctionIds.dots__red_blue)],
+                      
+                     "48:08.500": [qlcFunction.on(qlcFunctionIds.dots__red_blue)],
+                      "48:09.500": [qlcFunction.off(qlcFunctionIds.dots__red_blue)],
+
+                      "49:47": [qlcFunction.on(qlcFunctionIds.dots_line__lime_cyan)],
+                      "49:59": [qlcFunction.off(qlcFunctionIds.dots_line__lime_cyan),
+                        qlcFunction.on(qlcFunctionIds.dots__lime_cyan)
+                      ],
+                        "50:12": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan),
+                          qlcFunction.on(qlcFunctionIds.moving_dots__lime_cyan)
+                        ],
+"50:24.500": [qlcFunction.off(qlcFunctionIds.moving_dots__lime_cyan)],
+  "50:53.500": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "50:56.600": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+
+   "51:01": [  qlcFunction.on(qlcFunctionIds.moving_lines__lime_cyan)],
+    "51:02.500": [qlcFunction.off(qlcFunctionIds.moving_lines__lime_cyan)],
+
+      "51:11.000": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:11.800": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+   
+      "51:12.500": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:13.500": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+   
+      "51:14.000": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:14.800": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+
+   
+   "51:15": [  qlcFunction.on(qlcFunctionIds.moving_lines__lime_cyan)],
+    "51:16.500": [qlcFunction.off(qlcFunctionIds.moving_lines__lime_cyan)],
+
+    
+      "51:17.200": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:18.200": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+   
+      "51:19.000": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:20.000": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+
+   
+      "51:23.500": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:24.500": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+   
+
+
+   
+      "51:25.200": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:26.200": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+
+   
+      "51:27": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:28": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan),
+    qlcFunction.on(qlcFunctionIds.moving_lines__lime_cyan)],
+    "51:29.500": [qlcFunction.off(qlcFunctionIds.moving_lines__lime_cyan)],
+
+
+    
+      "51:30.000": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:31.000": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+
+      "51:31.500": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
+   "51:32.500": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
+   
+
 };
 
 export const QLC_PLAYLIST = new Map<TimeString, QlcPlaylistEntry>(

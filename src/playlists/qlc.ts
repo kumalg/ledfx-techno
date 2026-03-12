@@ -489,6 +489,56 @@ const qlcPlaylist: QlcPlaylist = {
       "51:31.500": [qlcFunction.on(qlcFunctionIds.dots__lime_cyan)],
    "51:32.500": [qlcFunction.off(qlcFunctionIds.dots__lime_cyan)],
    
+"52:01": [qlcFunction.on(qlcFunctionIds.moving_dots__white_blue)],
+"52:13.500": [qlcFunction.off(qlcFunctionIds.moving_dots__white_blue),
+    qlcFunction.on(qlcFunctionIds.moving_lines__white_blue),
+],
+
+"52:18": [qlcFunction.off(qlcFunctionIds.moving_lines__white_blue)],
+
+
+
+"52:51": [qlcFunction.on(qlcFunctionIds.moving_dots__white_blue)],
+ "53:01": [qlcFunction.off(qlcFunctionIds.moving_dots__white_blue)],
+
+ "53:16": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
+ "53:27": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+
+ "54:06": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
+  "54:16": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+  
+
+ "54:18": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
+  "54:31": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+
+  "54:49.300": [qlcFunction.on(qlcFunctionIds.moving_lines__red_violet)],
+  "55:00": [qlcFunction.off(qlcFunctionIds.moving_lines__red_violet),
+    qlcFunction.on(qlcFunctionIds.line__purple_violet)
+  ],
+  "55:02": [
+    qlcFunction.off(qlcFunctionIds.line__purple_violet),
+     qlcFunction.on(qlcFunctionIds.moving_dots__white_blue)
+  ],
+  "55:13": [
+     qlcFunction.off(qlcFunctionIds.moving_dots__white_blue),
+  ],
+
+  "56:25.500": [qlcFunction.on(qlcFunctionIds.dots__white_blue)],
+  "56:36": [qlcFunction.off(qlcFunctionIds.dots__white_blue)],
+
+
+  "56:38": [qlcFunction.on(qlcFunctionIds.moving_lines__white_blue)],
+  "56:48": [qlcFunction.off(qlcFunctionIds.moving_lines__white_blue)],
+
+  "56:50": [qlcFunction.on(qlcFunctionIds.moving_dots__white_blue)],
+  "57:02.500": [qlcFunction.off(qlcFunctionIds.moving_dots__white_blue)],
+
+"57:44": [
+  qlcFunction.on(qlcFunctionIds.dots__red_violet)
+],
+"57:56": [
+  qlcFunction.off(qlcFunctionIds.dots__red_violet)
+]
 
 };
 
